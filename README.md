@@ -1,7 +1,10 @@
-# Sistema de Marca Grupo CENA
+# Rebranding CENA
 
-Proposta de sistema de marca do Grupo CENA: arquitetura entre grupo e divisões, assinatura dos empreendimentos, pilares, assinatura de arquitetura, paleta com Pantones, nomes e referência de mercado.
+Apresentação do rebranding da CENA em formato de site, com a proposta de sistema de marca do Grupo CENA.
 
-Página única em HTML, sem dependências de build. Abra `index.html` no navegador.
+- `index.html`: o site, em uma página única.
+- `lp.html`: a versão anterior, em formato de página longa.
 
-Documento de trabalho em discussão. Logotipos e cores são propostas e podem mudar.
+HTML puro, sem etapa de build. Abra `index.html` no navegador.
+
+Documento de trabalho em discussão. Logotipos, cores e textos são propostas e podem mudar.
