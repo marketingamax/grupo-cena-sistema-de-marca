@@ -102,11 +102,7 @@ p,h1,h2,h3{margin:0}
 
 /* hero */
 .hero{padding-top:clamp(120px,14vw,200px);padding-bottom:clamp(72px,9vw,128px);position:relative;overflow:hidden}
-.hero .arcs{position:absolute;right:-6%;top:-6%;width:min(78vw,980px);color:var(--acc);opacity:.5;transform:translate3d(0,calc(var(--sy,0)*.16px),0);pointer-events:none}
-.hero .arcs path{fill:none;stroke:currentColor;stroke-width:46;stroke-opacity:.34}
-.hero .arcs path:nth-child(2){stroke-opacity:.27}.hero .arcs path:nth-child(3){stroke-opacity:.2}.hero .arcs path:nth-child(4){stroke-opacity:.14}.hero .arcs path:nth-child(5){stroke-opacity:.09}
-.hero .wrap{position:relative;display:grid;gap:clamp(36px,5vw,72px)}
-.hero-logo{width:clamp(180px,22vw,300px);color:var(--fg)}
+.hero .wrap{position:relative;display:grid;gap:clamp(56px,8vw,120px)}
 .display{font-size:clamp(52px,12.4vw,196px);font-weight:200;line-height:.9;letter-spacing:-.035em;text-transform:uppercase}
 .display .b{font-weight:900;color:var(--acc)}
 .hero-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:28px 48px}
@@ -268,9 +264,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 
 <!-- HERO -->
 <section class="hero" id="topo" data-tone="navy" data-ch="0">
-  <svg class="arcs" viewBox="0 0 900 900" aria-hidden="true"><path d="M620 0A280 280 0 0 0 900 280"/><path d="M480 0A420 420 0 0 0 900 420"/><path d="M340 0A560 560 0 0 0 900 560"/><path d="M200 0A700 700 0 0 0 900 700"/><path d="M60 0A840 840 0 0 0 900 840"/></svg>
   <div class="wrap">
-    <svg class="hero-logo" viewBox="0 0 580.01 165.84" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg>
     <div data-frame style="--fs:34px;--fo:18px;padding:clamp(8px,1vw,16px) 0">
       <h1 class="display"><span class="mask"><span>Rebranding</span></span><span class="mask"><span class="b">CENA</span></span></h1>
     </div>
@@ -809,8 +803,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 </section>
 
 <!-- CENA 09 -->
-<section class="blk" id="c9" data-tone="navy" data-ch="9" style="position:relative;overflow:hidden">
-  <svg class="arcs" viewBox="0 0 900 900" aria-hidden="true" style="position:absolute;right:-8%;bottom:-18%;width:min(80vw,900px);color:var(--acc);opacity:.4;transform:rotate(180deg) translate3d(0,calc(var(--sy,0)*-.05px),0);pointer-events:none"><g fill="none" stroke="currentColor" stroke-width="46"><path d="M620 0A280 280 0 0 0 900 280" stroke-opacity=".34"/><path d="M480 0A420 420 0 0 0 900 420" stroke-opacity=".26"/><path d="M340 0A560 560 0 0 0 900 560" stroke-opacity=".18"/><path d="M200 0A700 700 0 0 0 900 700" stroke-opacity=".12"/></g></svg>
+<section class="blk" id="c9" data-tone="navy" data-ch="9" style="position:relative">
   <div class="wrap" style="position:relative">
     <p class="slate rv"><b>Cena 09</b><span>Revelação e fechamento</span></p>
     <svg class="rv" viewBox="0 0 580.01 165.84" style="width:min(100%,clamp(280px,56vw,780px));color:var(--fg)" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg>
