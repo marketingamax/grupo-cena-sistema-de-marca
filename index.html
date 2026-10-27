@@ -13,7 +13,7 @@
 <style>
 /* Conceito: cada parte é uma "cena". O fundo da página muda de cor conforme a divisão em que você está, e o canto vazado da CENA fecha como moldura de visor sobre os títulos. Mulish em tudo, cantos retos. */
 :root{
-  --noite:#0C2340; --azul:#375172; --verde:#5B7855; --ameixa:#5D3754; --branco:#FFFFFF; --claro:#E7EAEE;
+  --noite:#0C2340; --azul:#375172; --verde:#5B7855; --ameixa:#575B61; --branco:#FFFFFF; --claro:#E7EAEE;
   --font:'Mulish','Helvetica Neue',Arial,sans-serif;
   --bg:#0C2340; --fg:#FFFFFF; --muted:rgba(255,255,255,.74); --lab:rgba(255,255,255,.66); --line:rgba(255,255,255,.22); --acc:#FFFFFF; --onacc:#0C2340;
   --gut:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px));
@@ -23,7 +23,7 @@
 body[data-tone="light"]{--bg:#E7EAEE;--fg:#0C2340;--muted:rgba(12,35,64,.74);--lab:#375172;--line:rgba(12,35,64,.22);--acc:#375172;--onacc:#FFFFFF}
 body[data-tone="blue"]{--bg:#375172;--fg:#FFFFFF;--muted:rgba(255,255,255,.82);--lab:rgba(255,255,255,.72);--line:rgba(255,255,255,.28);--acc:#FFFFFF;--onacc:#0C2340}
 body[data-tone="green"]{--bg:#5B7855;--fg:#FFFFFF;--muted:#FFFFFF;--lab:rgba(255,255,255,.8);--line:rgba(255,255,255,.34);--acc:#FFFFFF;--onacc:#0C2340}
-body[data-tone="plum"]{--bg:#5D3754;--fg:#FFFFFF;--muted:rgba(255,255,255,.82);--lab:rgba(255,255,255,.72);--line:rgba(255,255,255,.28);--acc:#FFFFFF;--onacc:#0C2340}
+body[data-tone="plum"]{--bg:#575B61;--fg:#FFFFFF;--muted:rgba(255,255,255,.82);--lab:rgba(255,255,255,.72);--line:rgba(255,255,255,.28);--acc:#FFFFFF;--onacc:#0C2340}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -170,7 +170,7 @@ p,h1,h2,h3{margin:0}
 .hub .dv{display:grid;gap:0}
 .hub .dv .st{justify-self:center;height:clamp(22px,3vw,40px)}
 .dcard{padding:clamp(22px,2.6vw,36px);display:grid;gap:14px;align-content:start;color:#FFFFFF}
-.dcard.e{background:#375172}.dcard.u{background:#5B7855}.dcard.p{background:#5D3754}
+.dcard.e{background:#375172}.dcard.u{background:#5B7855}.dcard.p{background:#575B61}
 .dcard .label{color:rgba(255,255,255,.82)}
 .dcard h3{font-size:clamp(22px,2.4vw,34px);font-weight:800;line-height:1.1}
 .dcard ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:16px;color:#FFFFFF}
@@ -303,10 +303,10 @@ body[data-tone="navy"] .gl-navy,body[data-tone="light"] .gl-light,body[data-tone
 main,footer,.strip{position:relative;z-index:1}
 .slate::after{content:"";flex:1;max-width:240px;height:2px;background:linear-gradient(90deg,var(--lab),transparent)}
 .col{border-top:3px solid var(--acc);border-image:linear-gradient(90deg,var(--acc),transparent 88%) 1}
-.prog{background:linear-gradient(90deg,#FFFFFF,#5B7855 55%,#5D3754)}
+.prog{background:linear-gradient(90deg,#FFFFFF,#5B7855 55%,#575B61)}
 .dcard.e{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#375172}
 .dcard.u{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#5B7855}
-.dcard.p{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#5D3754}
+.dcard.p{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#575B61}
 .bar{background:linear-gradient(165deg,rgba(255,255,255,.10),rgba(0,0,0,.16)),var(--c)}
 .ct{background-image:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14))}
 
@@ -505,7 +505,7 @@ main,footer,.strip{position:relative;z-index:1}
       <div class="vs">
         <div class="side"><p class="label">CBA Corp</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-cbc1" role="img" aria-label="CBA" style="aspect-ratio:268/55;width:clamp(86px,10vw,140px);height:auto"></span><span class="lg l-cbc2" role="img" aria-label="Corp" style="aspect-ratio:222/57;width:clamp(72px,8.4vw,116px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-cbaemp" role="img" aria-label="CBA Empreendimentos"></span></div></figure><figure class="fg"><div class="tile lt"><span class="lg l-viva" role="img" aria-label="Viva Corp"></span></div></figure></div><div class="st"></div><div class="row2 sm"><figure class="fg"><div class="tile dk"><span class="lg l-natus" role="img" aria-label="Natus Residence"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-puerto" role="img" aria-label="Puerto Madero"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-physis" role="img" aria-label="Physis Place"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-msunset" role="img" aria-label="Meraki Sunset"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mallure" role="img" aria-label="Meraki Allure"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mbeach" role="img" aria-label="Meraki Beach"></span></div></figure></div></div></div>
         <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
       </div>
       <div class="diff">
         <div class="col"><p class="label">O que distancia</p><ul><li>A Viva Corp não leva o nome CBA. Na CENA, todas as frentes levam o mesmo nome.</li><li>O tom do grupo é de capital e eficiência (“plataforma”). O da CENA é de legado e cidade.</li><li>Duas marcas para dois públicos, luxo e popular. A CENA tem três frentes de naturezas diferentes.</li></ul></div>
@@ -519,7 +519,7 @@ main,footer,.strip{position:relative;z-index:1}
       <div class="vs">
         <div class="side"><p class="label">JHSF</p><div class="bh"><div class="root" style="background:#FFFFFF"><span class="lg l-jhsf" role="img" aria-label="JHSF" style="aspect-ratio:80/24;width:clamp(110px,13vw,170px);height:auto"></span></div><div class="st"></div><div class="row2 sm sq4"><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanocj" role="img" aria-label="Fasano Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-shopcj" role="img" aria-label="Shopping Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fazbv" role="img" aria-label="Fazenda Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-catarina" role="img" aria-label="Catarina Fashion Outlet"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-bvestates" role="img" aria-label="Boa Vista Estates"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanobv" role="img" aria-label="Fasano Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-cjfashion" role="img" aria-label="CJ Fashion"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanoangra" role="img" aria-label="Fasano Angra dos Reis"></span></div></figure></div></div></div>
         <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
       </div>
       <div class="diff">
         <div class="col"><p class="label">O que distancia</p><ul><li>As marcas aparecem com identidade própria, sem o nome JHSF nos logos. A CENA põe o seu nome em cada frente.</li><li>Nove negócios de setores diferentes, de shoppings a aviação. A CENA tem três frentes do mesmo setor.</li><li>Capital aberto desde 2007 e “Participações” no nome. A CENA quer ser um grupo de marca, e não uma holding.</li></ul></div>
@@ -533,7 +533,7 @@ main,footer,.strip{position:relative;z-index:1}
       <div class="vs">
         <div class="side"><p class="label">Hurbana</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-hurbana" role="img" aria-label="Hurbana" style="aspect-ratio:257/50;width:clamp(130px,16vw,200px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-hcidades" role="img" aria-label="Hurbana Cidades-bairros"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpasseios" role="img" aria-label="Hurbana Passeios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpatios" role="img" aria-label="Hurbana Pátios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hreservas" role="img" aria-label="Hurbana Reservas"></span></div></figure></div></div></div>
         <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
       </div>
       <div class="diff">
         <div class="col"><p class="label">O que distancia</p><ul><li>Atua em um só setor, o urbanismo, em quatro escalas. A CENA reúne três negócios diferentes.</li><li>A marca é nova. A CENA tem nome e uma herança de mais de 140 anos.</li><li>As linhas têm nome por escala. Na CENA, os produtos têm nome livre, como Arkki.</li></ul></div>
@@ -639,7 +639,7 @@ main,footer,.strip{position:relative;z-index:1}
         <circle class="nd" cx="490" cy="110" r="88" fill="#5B7855"/>
         <text class="nd" x="490" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">CENA</text>
         <text class="nd" x="490" y="130" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">Urbanismo</text>
-        <circle class="nd" cx="300" cy="450" r="88" fill="#5D3754"/>
+        <circle class="nd" cx="300" cy="450" r="88" fill="#575B61"/>
         <text class="nd" x="300" y="446" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">CENA</text>
         <text class="nd" x="300" y="470" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">Locações</text>
       </svg>
@@ -663,7 +663,7 @@ main,footer,.strip{position:relative;z-index:1}
         <div style="display:grid;gap:10px;padding-left:clamp(16px,3vw,40px)">
           <p class="h3" style="background:#375172;padding:14px 22px;color:#FFFFFF;border:1px solid rgba(255,255,255,.35)">CENA Empreendimentos</p>
           <p class="h3" style="background:#5B7855;padding:14px 22px;color:#FFFFFF">CENA Urbanismo</p>
-          <p class="h3" style="background:#5D3754;padding:14px 22px;color:#FFFFFF">CENA Locações</p>
+          <p class="h3" style="background:#575B61;padding:14px 22px;color:#FFFFFF">CENA Locações</p>
         </div>
         <div style="padding-left:clamp(32px,6vw,80px)"><p class="mut" style="border:2px dashed var(--line);padding:14px 22px">Produtos: Arkki Home Club, Côte D’Azur Ville</p></div>
       </div>
@@ -705,7 +705,7 @@ main,footer,.strip{position:relative;z-index:1}
       <div class="row head"><span>Frente</span><span>Escopo</span><span>Público prioritário</span></div>
       <div class="row rv"><p class="h3" style="border-left:6px solid #375172;padding-left:16px"><span class="lb">Frente</span>CENA Empreendimentos</p><p><span class="lb">Escopo</span>Projetos imobiliários residenciais e comerciais.</p><p class="mut"><span class="lb">Público</span>Compradores, empresas e investidores.</p></div>
       <div class="row rv"><p class="h3" style="border-left:6px solid #5B7855;padding-left:16px"><span class="lb">Frente</span>CENA Urbanismo</p><p><span class="lb">Escopo</span>Desenvolvimento urbano: bairros, condomínios e loteamentos.</p><p class="mut"><span class="lb">Público</span>Moradores, empresas e indústrias.</p></div>
-      <div class="row rv"><p class="h3" style="border-left:6px solid #5D3754;padding-left:16px"><span class="lb">Frente</span>CENA Locações</p><p><span class="lb">Escopo</span>Gestão de imóveis próprios para locação.</p><p class="mut"><span class="lb">Público</span>Locatários residenciais e comerciais.</p></div>
+      <div class="row rv"><p class="h3" style="border-left:6px solid #575B61;padding-left:16px"><span class="lb">Frente</span>CENA Locações</p><p><span class="lb">Escopo</span>Gestão de imóveis próprios para locação.</p><p class="mut"><span class="lb">Público</span>Locatários residenciais e comerciais.</p></div>
     </div>
     <p class="small rv" style="margin-top:24px">Divisão de atuação proposta. Escopo e público precisam ser confirmados pela diretoria e pela área comercial.</p>
   </div>
@@ -973,6 +973,7 @@ main,footer,.strip{position:relative;z-index:1}
     <p class="slate rv"><b>Cena 08</b><span>CENA Propriedades</span></p>
     <h2 class="display rv" style="--fo:14px;padding-block:6px;font-size:clamp(36px,8.2vw,128px);line-height:.98;letter-spacing:-.03em;font-weight:200;text-transform:uppercase"><span class="mask"><span>Locações é o que fazemos.</span></span><span class="mask"><span style="font-weight:800;color:var(--acc)">Propriedades é o que somos.</span></span></h2>
     <p class="lead rv" style="margin-top:clamp(28px,4vw,56px)">Gestão e curadoria de imóveis próprios. Antiga CENA Locações. A locação é uma atividade da frente, não uma quarta marca.</p>
+    <p class="small rv" style="margin-top:12px">Cor da frente a definir. O cinza deste bloco é provisório.</p>
   </div>
 </section>
 
