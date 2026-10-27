@@ -42,7 +42,7 @@ p{margin:0;max-width:62ch}
 /* barra superior */
 .bar{display:flex;justify-content:space-between;align-items:center;padding-block:22px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line);margin-inline:-20px;padding-inline:20px}
 .bar .wm{font-size:26px}
-.bar nav{display:flex;gap:22px;font-size:13px;font-family:var(--display);letter-spacing:.06em}
+.bar nav{display:flex;gap:16px;font-size:12px;font-family:var(--display);letter-spacing:.06em}
 .bar nav a{color:var(--muted);text-decoration:none}
 .bar nav a:hover,.bar nav a:focus-visible{color:var(--fg)}
 @media(max-width:760px){.bar nav{display:none}}
@@ -224,6 +224,25 @@ svg.sigimg{display:block;width:min(86%,440px);height:auto;color:inherit}
 .pillar .shaft{background:var(--surface);border-inline:1px solid var(--line);box-shadow:inset 9px 0 0 -8px var(--line),inset -9px 0 0 -8px var(--line);padding:34px clamp(22px,3vw,34px) 40px;display:grid;gap:16px;align-content:start;min-height:260px}
 .pillar h3{font-weight:300;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(20px,2.3vw,26px);line-height:1.15}
 .pillar p{color:var(--muted);font-size:16px}
+.toc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 28px;counter-reset:t}
+.toc li{counter-increment:t;border-top:1px solid var(--line)}
+.toc a{display:flex;gap:14px;align-items:baseline;padding:14px 0;color:var(--fg);text-decoration:none;font-family:var(--display);font-size:15px}
+.toc a::before{content:counter(t,decimal-leading-zero);font-size:12px;letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+.toc a:hover,.toc a:focus-visible{color:var(--accent)}
+.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:700px){.compare{grid-template-columns:1fr}}
+.cmp{background:var(--surface);border:1px solid var(--line);padding:26px;display:grid;gap:14px;align-content:start;min-width:0}
+.cmp h3{font-weight:300;text-transform:uppercase;letter-spacing:.04em;font-size:22px}
+.cmp dl{margin:0;display:grid;gap:12px}
+.cmp dt{font-family:var(--display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cmp dd{margin:2px 0 0;font-size:15px}
+.cmp.us{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.scale{margin-top:16px;padding:26px 26px 22px;border:1px solid var(--line);background:var(--surface)}
+.scale .track{position:relative;height:6px;background:linear-gradient(90deg,var(--muted),var(--accent));margin:48px 8px 28px}
+.scale .mk{position:absolute;top:-8px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--fg);transform:translateX(-50%)}
+.scale .mk span{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--display);font-size:12px;font-weight:700}
+.scale .ends{display:flex;justify-content:space-between;font-family:var(--display);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.stage[data-bg="claro"]{background:#F3F5F7;color:#0C2340}
 .bgs{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-4px 0 20px;font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .bgb{font:500 13px var(--display);padding:7px 14px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
 .bgb[aria-pressed="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
@@ -239,22 +258,23 @@ svg.sigimg{display:block;width:min(86%,440px);height:auto;color:inherit}
   <header class="bar">
     <svg class="wm lg" role="img" aria-label="CENA"><use href="#logo-cena"/></svg>
     <nav aria-label="Seções">
-      <a href="#arquitetura">Arquitetura</a><a href="#assinatura">Assinatura</a><a href="#pilares">Pilares</a><a href="#assinatura-arquitetura">Diferenciais</a><a href="#cor">Cor</a><a href="#propriedades">Propriedades</a><a href="#cba">CBA Corp</a><a href="#decisoes">Decisões</a>
+      <a href="#ponto-de-partida">Introdução</a><a href="#cba">Estudo</a><a href="#grupo-vs-holding">Grupo</a><a href="#arquitetura">Hub</a><a href="#pilares">Institucional</a><a href="#empreendimentos">Empreendimentos</a><a href="#urbanismo">Urbanismo</a><a href="#propriedades">Propriedades</a><a href="#cor">Cores e logos</a>
     </nav>
   </header>
 
   <section class="hero" id="topo">
     <div class="frame">
       <svg class="lg hero-logo" viewBox="0 0 580.01 165.84" role="img" aria-label="Grupo CENA"><use href="#grupo-cena"/></svg>
-      <div class="eyebrow">Proposta de sistema de marca · Outubro de 2026</div>
-      <h1>Um grupo, <em>três</em> marcas e um jeito de viver bem.</h1>
-      <p class="lead">A CENA deixa de ser o nome de uma divisão e passa a ser o grupo. Empreendimentos, Propriedades e Urbanismo ficam sob a mesma assinatura e o mesmo padrão de projeto, herdados de <strong>mais de 140 anos</strong> de família Hoepcke.</p>
+      <div class="eyebrow">Apresentação · Outubro de 2026</div>
+      <h1>Rebranding <em>CENA</em></h1>
+      <p class="lead">Um grupo, três divisões e uma só assinatura. A CENA deixa de ser o nome de uma divisão e passa a ser o <strong>grupo</strong>, herdeiro de <strong>mais de 140 anos</strong> de família Hoepcke.</p>
       <div class="meta"><span>Grupo CENA</span><span>Desde 1860</span><span>Florianópolis · SC</span></div>
     </div>
   </section>
 
   <section id="ponto-de-partida">
-    <div class="head"><div class="eyebrow">O que o manual, o perfil e o site mostram</div><h2>Seis pontos, quatro já decididos</h2></div>
+    <div class="head"><div class="eyebrow">Introdução</div><h2>Por que o rebranding</h2><p class="lead">A CENA cresceu em três frentes e ainda se apresenta como se fosse uma só. Aqui está o que faltava, o que vamos trazer e o caminho desta apresentação.</p></div>
+    <h3 style="margin:0 0 16px">Do que sentíamos falta</h3>
     <div class="finds">
       <div class="find"><span class="chip k">Decidido</span><b>O nome fazia dois papéis</b><span>O grupo se chama Grupo CENA, com o logo só "cena". CENA Empreendimentos é uma divisão e um produto, onde ficam o Arkki Home Club e o Côte D'Azur Ville.</span></div>
       <div class="find"><span class="chip t">A resolver</span><b>Portfólio misturado</b><span>O Centro Executivo Carl Hoepcke e o Armazém Rita Maria são para locação, mas aparecem na página de Empreendimentos. O site precisa separar.</span></div>
@@ -263,159 +283,28 @@ svg.sigimg{display:block;width:min(86%,440px);height:auto;color:inherit}
       <div class="find"><span class="chip k">Decidido</span><b>Pilares divergiam</b><span>O manual tinha três pilares e o perfil, quatro. Ficam só os três do novo posicionamento, na seção Pilares.</span></div>
       <div class="find"><span class="chip k">Decidido</span><b>O bordô sai</b><span>Era a cor de Locações no manual atual. Sai com a mudança para Propriedades, que ganha uma cor nova.</span></div>
     </div>
-  </section>
-
-  <section id="arquitetura">
-    <div class="head"><div class="eyebrow">Arquitetura de marca</div><h2>CENA no topo, três divisões abaixo</h2>
-      <p class="lead">O grupo é o hub institucional e de legado, e não vende. Leva às três divisões, cada uma com a sua cor. Cada produto leva a marca própria e o C de CENA.</p></div>
-    <div class="arch">
-      <div class="top"><svg class="lg gc" viewBox="0 0 580.01 165.84" role="img" aria-label="Grupo CENA"><use href="#grupo-cena"/></svg><small>Grupo · Família Hoepcke · Desde 1860</small></div>
-      <div class="stem"></div>
-      <div class="divs" id="divs">
-        <article class="div e">
-          <h3><small>Divisão</small>CENA Empreendimentos</h3>
-          <p class="why">Incorporação residencial e comercial.</p>
-          <ul><li>Arkki Home Club</li><li>Côte D'Azur Ville</li></ul>
-        </article>
-        <article class="div p">
-          <h3><small>Divisão · nova</small>CENA Propriedades</h3>
-          <p class="why">Gestão e curadoria de imóveis próprios, em Florianópolis. Antiga CENA Locações.</p>
-          <ul><li>Centro Executivo Carl Hoepcke</li><li>Armazém Rita Maria</li><li>Centro Executivo Ferreira Lima <i>· a confirmar</i></li></ul>
-        </article>
-        <article class="div u">
-          <h3><small>Divisão</small>CENA Urbanismo</h3>
-          <p class="why">Bairros, condomínios e loteamentos residenciais e industriais.</p>
-          <ul><li>Loteamentos em Navegantes <i>· residencial e industrial</i></li><li>Loteamento em Governador Celso Ramos</li></ul>
-        </article>
-      </div>
-    </div>
-    <p class="note">Os nomes dos produtos seguem o que existe hoje. A divisão de cada ativo precisa ser validada com a área comercial.</p>
-  </section>
-
-  <section id="assinatura">
-    <div class="head"><div class="eyebrow">Assinatura dos empreendimentos</div><h2>O símbolo de CENA junto ao nome</h2>
-      <p class="lead">A assinatura é um símbolo da CENA no canto superior direito do nome do produto, na mesma cor. Três versões do logo do Arkki Home Club, lado a lado.</p></div>
-    <div class="sigset">
-      <article class="sigcard">
-        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 258.11 60.92" role="img" aria-label="Logo Arkki sem assinatura"><use href="#arkki"/></svg></div>
-        <div class="body"><span class="chip c">Sem assinatura</span><h3>O logo do produto</h3><p>Como o Arkki Home Club existe hoje, em uma só cor. É a base das outras versões.</p></div>
-      </article>
-      <article class="sigcard pref">
-        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 706.05 205.77" role="img" aria-label="Logo Arkki com frame"><use href="#arkki-frame"/></svg></div>
-        <div class="body"><span class="chip k">Preferida</span><h3>Com frame</h3><p>O canto vazado da CENA no canto superior direito do nome. É a versão mais leve, resiste bem em tamanho pequeno e não se confunde com o símbolo de copyright.</p></div>
-      </article>
-      <article class="sigcard">
-        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 704.82 206.05" role="img" aria-label="Logo Arkki com o C de CENA em círculo"><use href="#arkki-c"/></svg></div>
-        <div class="body"><span class="chip t">Alternativa</span><h3>Com C</h3><p>O C de CENA dentro de um círculo. É a mais explícita, mas em tamanho pequeno as molduras somem e o símbolo pode ser lido como um ©.</p></div>
-      </article>
-    </div>
-    <div class="rule">
-      <div class="n" aria-hidden="true"></div>
-      <div><h3>Preferência: usar só o frame</h3><p style="margin-top:8px;color:var(--muted)">A escolha é seguir somente com a versão com frame, em todos os formatos. A versão com C fica de fora por enquanto. Tamanho mínimo e área de respiro ainda precisam ser definidos.</p></div>
-    </div>
-  </section>
-
-  <section id="pilares">
-    <div class="head"><div class="eyebrow">Posicionamento</div><h2>Propósito, visão e três pilares</h2>
-      <p class="lead">Um posicionamento autoral, ligado à história da família e à transformação de Florianópolis. Sem valores corporativos genéricos.</p></div>
-    <div class="lines" style="margin-top:0">
-      <div><span>Incorporar valor à vida.</span><small>PROPÓSITO · MISSÃO</small></div>
-      <div><span>Recontar a forma de viver nas cidades.</span><small>VISÃO</small></div>
-    </div>
-    <div class="pillars">
-      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Legados que permanecem</h3><p>A história, a tradição familiar e a continuidade entre gerações.</p></div><div class="base" aria-hidden="true"></div></article>
-      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Olhares que enxergam o invisível</h3><p>A capacidade de reconhecer o potencial dos lugares e transformá-los.</p></div><div class="base" aria-hidden="true"></div></article>
-      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Novos capítulos</h3><p>A evolução das cidades, a inovação e a construção do futuro.</p></div><div class="base" aria-hidden="true"></div></article>
-    </div>
-    <div class="lines" style="margin-top:32px">
-      <div><span>Unindo histórias, criando legados.</span><small>ASSINATURA</small></div>
-    </div>
-  </section>
-
-  <section id="assinatura-arquitetura">
-    <div class="head"><div class="eyebrow">Assinatura de arquitetura</div><h2>Os diferenciais construtivos da CENA</h2>
-      <p class="lead">O que todo empreendimento entrega e que o comprador pode conferir. Cada item é um critério de projeto ligado a um dos três pilares.</p></div>
-    <div class="tbl">
-      <table>
-        <thead><tr><th>Diferencial</th><th>O que significa</th><th>O que falta definir</th><th>Pilar</th></tr></thead>
-        <tbody>
-          <tr><td><b>Bem-estar empregado</b></td><td>Cada projeto tem um conceito de bem-estar próprio e traduzido em elementos construtivos, sem ficar só no texto de venda. O Arkki é o modelo: Wellness &amp; Craft.</td><td>Nomear o conceito de cada projeto e listar de 3 a 5 elementos que o provam.</td><td>Novos capítulos</td></tr>
-          <tr><td><b>Piscina de raia</b></td><td>Item fixo em todo empreendimento residencial. A referência é a raia semiolímpica do Côte D'Azur Ville.</td><td>Comprimento mínimo, se é aquecida ou coberta, e a regra de exceção para terrenos onde não cabe.</td><td>Novos capítulos</td></tr>
-          <tr><td><b>Fachada com arborismo</b></td><td>Fachada com vegetação viva: cerca viva e "mato vivo". O verde faz parte da imagem do prédio na rua.</td><td>Percentual de fachada, espécies nativas, irrigação e manutenção. Atenção ao custo de condomínio, que o manual diz querer reduzir.</td><td>Olhares que enxergam o invisível</td></tr>
-          <tr><td><b>Figura de autoridade e/ou embaixador</b></td><td>Todo empreendimento entrega a assinatura de alguém que o endossa: uma autoridade técnica (arquiteto, paisagista) ou um embaixador (um rosto ligado ao tema).</td><td>Quem se encaixa em cada tipo, como é contratado e por quanto tempo a imagem pode ser usada.</td><td>Legados que permanecem</td></tr>
-          <tr><td><b>Revitalização</b></td><td>Todo projeto deixa algo para a cidade e para o entorno: calçada, praça, fachada ativa, recuperação de patrimônio.</td><td>Um mínimo obrigatório por projeto e como medir.</td><td>Olhares que enxergam o invisível</td></tr>
-          <tr><td><b>Conceito com legado</b></td><td>Cada empreendimento conta uma história que carrega o legado e o valor da CENA. Exemplos citados: Arkki (bem-estar) e Casa Ruth (história).</td><td>O que é a Casa Ruth e como a história de cada projeto é escolhida.</td><td>Legados que permanecem</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Esta seção parte da nota "Assinatura de arquitetura" do quadro de rebranding. Onde diz "a definir", a nota não traz a informação e a decisão é da diretoria.</p>
-  </section>
-
-  <section id="cor">
-    <div class="head"><div class="eyebrow">Sistema de cor</div><h2>Dois azuis, um verde e o bordô fora</h2>
-      <p class="lead">O azul profundo é do Grupo CENA e o azul do manual atual fica com Empreendimentos. Escolha a cor de Propriedades e veja a página inteira mudar, inclusive a arquitetura de marca lá em cima.</p></div>
-    <div class="opts" role="radiogroup" aria-label="Cor de Propriedades">
-      <input type="radio" name="prop" id="oa" value="#5D3754" data-pantone="7659 C" data-noite="#0C2340" data-azul="#375172" data-verde="#5B7855" data-ink="#FFFFFF" data-txt="Ameixa: escura e fria, bem longe do bordô. Tem matiz próprio, diferente dos azuis e do verde, e dá a Propriedades ar de patrimônio. Ela e o azul de Empreendimentos têm luminosidade quase igual, então não devem aparecer lado a lado sem um separador." checked><label for="oa"><i style="background:linear-gradient(90deg,#375172 50%,#5D3754 50%)"></i><span>A · Ameixa (recomendada)<small>#5D3754 · Pantone 7659 C</small></span></label>
-      <input type="radio" name="prop" id="ob" value="#6E6259" data-pantone="Warm Gray 11 C" data-noite="#0C2340" data-azul="#375172" data-verde="#5B7855" data-ink="#FFFFFF" data-txt="Pedra: cinza quente, sóbria e firme. Passa solidez e fica mais clara que o azul de Empreendimentos, o que ajuda a separar as duas divisões. Em contrapartida, é discreta ao lado do verde e pede boas fotos para não parecer apagada."><label for="ob"><i style="background:linear-gradient(90deg,#375172 50%,#6E6259 50%)"></i><span>B · Pedra<small>#6E6259 · Pantone Warm Gray 11 C</small></span></label>
-    </div>
-    <div class="palette">
-      <div class="sw noite"><b>Azul-noite</b><span id="hnoite">#0C2340 · Grupo CENA · Pantone 289 C</span></div>
-      <div class="sw azul"><b>Azul</b><span id="hazul">#375172 · Empreendimentos · Pantone 295 U</span></div>
-      <div class="sw verde"><b>Verde</b><span id="hverde">#5B7855 · Urbanismo · Pantone 2266 U</span></div>
-      <div class="sw prop"><b>Propriedades</b><span id="hex">#5D3754 · Pantone 7659 C</span></div>
-      <div class="sw off"><b>Off-white</b><span>#F3F5F7 · Fundo</span></div>
-    </div>
-    <p class="propnote" id="propnote" aria-live="polite"></p>
-    <p class="note">Os Pantones 289 C, 295 U e 2266 U são referências a confirmar no Pantone Guide. O 295 U e o 2266 U vêm do manual atual. A ameixa usa o Pantone 7659 C e a pedra, o Warm Gray 11 C.</p>
-  </section>
-
-  <section id="nomes">
-    <div class="head"><div class="eyebrow">Nomes e frases</div><h2>O que muda e o que fica</h2></div>
-    <div class="tbl">
-      <table>
-        <thead><tr><th>Hoje</th><th>Proposta</th><th>Situação</th><th>Por quê</th></tr></thead>
-        <tbody>
-          <tr><td><b>Cena Empreendimentos</b> (grupo)</td><td><b>Grupo CENA</b></td><td><span class="chip k">Decidido</span></td><td>O nome é Grupo CENA e o logo é só "cena", sem "empreendimentos". CENA Empreendimentos passa a ser divisão e produto.</td></tr>
-          <tr><td><b>Locações</b></td><td><b>CENA Propriedades</b></td><td><span class="chip k">Decidido</span></td><td>Descreve o patrimônio que o grupo possui e administra, não só o serviço de aluguel. Na transição, aparece como "CENA Propriedades · antiga CENA Locações", porque os clientes de anos conhecem a marca atual.</td></tr>
-          <tr><td><b>Urbanismo</b></td><td><b>CENA Urbanismo</b></td><td><span class="chip k">Manter</span></td><td>Claro e já reconhecido. Só ganha o prefixo.</td></tr>
-          <tr><td><b>Empreendimentos</b> (divisão)</td><td><b>CENA Empreendimentos</b></td><td><span class="chip k">Decidido</span></td><td>Fica como divisão e produto. É onde ficam o Arkki Home Club e o Côte D'Azur Ville.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="lines">
-      <div><span>Unindo histórias. Criando legados.</span><small>INSTITUCIONAL</small></div>
-      <div><span>Incorporar valor à vida.</span><small>PROMESSA</small></div>
-      <div><span>Viver bem é projeto.</span><small>NOVA · PRODUTO</small></div>
-      <div><span>Desde 1860, cenários para viver bem.</span><small>NOVA · HERANÇA</small></div>
-    </div>
-  </section>
-
-  <section id="propriedades">
-    <div class="head"><div class="eyebrow">CENA Propriedades</div><h2>Locações é o que fazemos, Propriedades é o que somos</h2>
-      <p class="lead">Seis razões para trocar o nome, com base no que a Bruna descreve da divisão e no que a história da família mostra.</p></div>
+  
+    <h3 style="margin:56px 0 16px">O que vamos trazer</h3>
     <div class="finds">
-      <div class="find"><b>Diz o que a divisão é</b><span>É uma carteira própria e exclusiva, que não vai ao mercado. "Locações" nomeia uma atividade. "Propriedades" nomeia o que o grupo possui.</span></div>
-      <div class="find"><b>Combina com a exclusividade</b><span>A carteira está 100% alugada e tem fila de espera. O nome precisa soar a algo que se procura, e não a uma vitrine aberta.</span></div>
-      <div class="find"><b>Cresce sem trocar de nome</b><span>Aguenta imóvel para locação, para operação, como o Armazém Rita Maria, ou para outros usos no futuro.</span></div>
-      <div class="find"><b>Casa com a herança</b><span>O patrimônio Hoepcke começou em terrenos próprios, e o Armazém são galpões da família de 1896.</span></div>
-      <div class="find"><b>Mantém o padrão do grupo</b><span>CENA Empreendimentos, Urbanismo e Propriedades têm o mesmo ritmo. "Locações" era o elo mais fraco.</span></div>
-      <div class="find"><b>Organiza o portfólio</b><span>Hoje o Carl Hoepcke e o Armazém aparecem em Empreendimentos, mesmo sendo de locação. Com o novo nome, o site separa cada um no lugar certo.</span></div>
+      <div class="find"><b>Um grupo com marca própria</b><span>O Grupo CENA, que é um hub institucional e de legado.</span></div>
+      <div class="find"><b>Três divisões</b><span>CENA Empreendimentos, CENA Urbanismo e CENA Propriedades, cada uma com seu papel.</span></div>
+      <div class="find"><b>Uma assinatura única</b><span>O símbolo da CENA junto ao nome de cada empreendimento.</span></div>
+      <div class="find"><b>Posicionamento autoral</b><span>Propósito, visão e três pilares ligados à história da família e à cidade.</span></div>
+      <div class="find"><b>Assinatura de arquitetura</b><span>O que todo empreendimento entrega e o comprador pode conferir.</span></div>
+      <div class="find"><b>Cores e logos</b><span>Uma paleta com Pantones e as versões do logo do grupo.</span></div>
     </div>
-    <div class="tbl" style="margin-top:32px">
-      <table>
-        <thead><tr><th>Objeção</th><th>Resposta</th></tr></thead>
-        <tbody>
-          <tr><td><b>Os clientes conhecem Cena Locações.</b></td><td>Por isso a transição: "CENA Propriedades · antiga CENA Locações". O nome muda e a relação continua.</td></tr>
-          <tr><td><b>Propriedades é genérico.</b></td><td>É um nome de categoria. A personalidade vem do descritivo "Gestão e curadoria de imóveis próprios" e da frase "Quem usa ensina quem projeta".</td></tr>
-          <tr><td><b>Quem procura aluguel não vai achar.</b></td><td>"Locação" continua nos textos, nos canais e na busca. O cliente digita a palavra, a marca não precisa dela.</td></tr>
-          <tr><td><b>Parece venda de imóveis.</b></td><td>Por isso o descritivo é obrigatório nos primeiros anos.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Ponto fraco a assumir: o nome sozinho não carrega a curadoria dos térreos, que é o diferencial descrito no vídeo. Quem faz esse trabalho é o descritivo e a comunicação.</p>
-    <div class="lines">
-      <div><span>Quem usa ensina quem projeta.</span><small>FRASE DA DIVISÃO</small></div>
-    </div>
+    <h3 style="margin:56px 0 16px">O que vem a seguir</h3>
+    <ol class="toc">
+      <li><a href="#cba">Estudo de mercado: CBA Corp</a></li>
+      <li><a href="#aprendizados">O que levamos do estudo</a></li>
+      <li><a href="#grupo-vs-holding">Grupo, e não holding</a></li>
+      <li><a href="#arquitetura">O hub e as três divisões</a></li>
+      <li><a href="#pilares">Grupo CENA: propósito, visão e pilares</a></li>
+      <li><a href="#empreendimentos">CENA Empreendimentos</a></li>
+      <li><a href="#urbanismo">CENA Urbanismo</a></li>
+      <li><a href="#propriedades">CENA Propriedades</a></li>
+      <li><a href="#cor">Cores e logos</a></li>
+    </ol>
   </section>
 
   <section id="cba">
@@ -462,7 +351,12 @@ svg.sigimg{display:block;width:min(86%,440px);height:auto;color:inherit}
       </table>
     </div>
 
-    <h3 style="margin:56px 0 16px">O que isso muda para a CENA</h3>
+    <p class="note">Fontes: cbacorp.com.br e cbaempreendimentos.com.br, incluindo a página Quem somos. O site vivacorp.com.br não foi aberto.</p>
+  </section>
+
+  <section id="aprendizados">
+    <div class="head"><div class="eyebrow">O que levamos do estudo</div><h2>Como usamos a referência</h2>
+      <p class="lead">Do estudo da CBA saem seis pontos de direção. Eles orientam o que vem a seguir: o nome do grupo, a estrutura, os pilares e a assinatura.</p></div>
     <div class="finds">
       <div class="find"><b>Natureza e autoria não bastam</b><span>A CBA já ocupa biofilia, arquitetura autoral e valorização do entorno, e usa até a lista "Diferenciais Construtivos". A CENA precisa sustentar esses itens com o que a CBA não mostra: herança e bem-estar físico.</span></div>
       <div class="find"><b>O nome da seção</b><span>"Diferenciais construtivos" é o título que a CBA usa. Na LP, a seção da CENA se chama assim. Vale trocar por "Assinatura de arquitetura", que é o termo do seu quadro.</span></div>
@@ -471,7 +365,225 @@ svg.sigimg{display:block;width:min(86%,440px);height:auto;color:inherit}
       <div class="find"><b>Valores genéricos</b><span>Autenticidade, humildade e protagonismo servem a qualquer empresa. Isso reforça a decisão de a CENA não usar valores corporativos.</span></div>
       <div class="find"><b>Separar o público muda a marca</b><span>A Viva Corp não leva o nome CBA. É um precedente para o Urbanismo industrial, caso ele passe a falar com um público muito distante do comprador de apartamento.</span></div>
     </div>
-    <p class="note">Fontes: cbacorp.com.br e cbaempreendimentos.com.br, incluindo a página Quem somos. O site vivacorp.com.br não foi aberto.</p>
+  </section>
+
+  <section id="grupo-vs-holding">
+    <div class="head"><div class="eyebrow">Nome do grupo</div><h2>Grupo, e não holding</h2>
+      <p class="lead">Holding e grupo podem descrever a mesma empresa. A diferença está em para quem a marca fala.</p></div>
+    <div class="compare">
+      <article class="cmp"><h3>Holding</h3><dl>
+        <div><dt>Foco</dt><dd>Participação societária e capital.</dd></div>
+        <div><dt>Fala com</dt><dd>Investidores, bancos e sócios.</dd></div>
+        <div><dt>Tom</dt><dd>Financeiro, de estrutura e de eficiência.</dd></div>
+      </dl></article>
+      <article class="cmp us"><h3>Grupo CENA</h3><dl>
+        <div><dt>Foco</dt><dd>Marcas que compartilham uma história e uma assinatura.</dd></div>
+        <div><dt>Fala com</dt><dd>Clientes, parceiros, locatários e a cidade.</dd></div>
+        <div><dt>Tom</dt><dd>Legado, família e pessoas.</dd></div>
+      </dl></article>
+    </div>
+    <div class="scale" role="img" aria-label="Escala de tom entre capital e pessoas, com a CBA mais perto de capital e o Grupo CENA mais perto de pessoas">
+      <div class="track"><span class="mk" style="left:22%"><span>CBA Corp</span></span><span class="mk" style="left:76%"><span>Grupo CENA</span></span></div>
+      <div class="ends"><span>Capital e eficiência</span><span>Legado e pessoas</span></div>
+    </div>
+    <p class="note">A escala mostra a linguagem de comunicação segundo os textos dos sites. É uma leitura nossa, e não uma medição.</p>
+    <h3 style="margin:56px 0 16px">Por que Grupo CENA</h3>
+    <div class="finds">
+      <div class="find"><b>A herança é de família</b><span>Os Hoepcke estão na sexta geração, desde 1860. "Grupo" carrega isso. "Holding" apaga.</span></div>
+      <div class="find"><b>Fala com gente</b><span>O comprador, o locatário e o parceiro não precisam conhecer a estrutura societária da empresa.</span></div>
+      <div class="find"><b>Cabe um hub</b><span>O grupo é institucional e de legado. Ele leva às divisões e não vende.</span></div>
+      <div class="find"><b>Sai da corrida do capital</b><span>A CBA já usa "plataforma" e eficiência. A CENA tem outro território, o do legado.</span></div>
+    </div>
+    <p class="note">Pendente do jurídico: confirmar se a razão social leva "S.A." e onde esse descritivo aparece.</p>
+  </section>
+
+  <section id="arquitetura">
+    <div class="head"><div class="eyebrow">O hub e as divisões</div><h2>CENA no topo, três divisões abaixo</h2>
+      <p class="lead">O grupo é o hub institucional e de legado, e não vende. Leva às três divisões, cada uma com a sua cor. Cada produto leva a marca própria e o C de CENA.</p></div>
+    <div class="arch">
+      <div class="top"><svg class="lg gc" viewBox="0 0 580.01 165.84" role="img" aria-label="Grupo CENA"><use href="#grupo-cena"/></svg><small>Grupo · Família Hoepcke · Desde 1860</small></div>
+      <div class="stem"></div>
+      <div class="divs" id="divs">
+        <article class="div e">
+          <h3><small>Divisão</small>CENA Empreendimentos</h3>
+          <p class="why">Incorporação residencial e comercial.</p>
+          <ul><li>Arkki Home Club</li><li>Côte D'Azur Ville</li></ul>
+        </article>
+        <article class="div p">
+          <h3><small>Divisão · nova</small>CENA Propriedades</h3>
+          <p class="why">Gestão e curadoria de imóveis próprios, em Florianópolis. Antiga CENA Locações.</p>
+          <ul><li>Centro Executivo Carl Hoepcke</li><li>Armazém Rita Maria</li><li>Centro Executivo Ferreira Lima <i>· a confirmar</i></li></ul>
+        </article>
+        <article class="div u">
+          <h3><small>Divisão</small>CENA Urbanismo</h3>
+          <p class="why">Bairros, condomínios e loteamentos residenciais e industriais.</p>
+          <ul><li>Loteamentos em Navegantes <i>· residencial e industrial</i></li><li>Loteamento em Governador Celso Ramos</li></ul>
+        </article>
+      </div>
+    </div>
+    <p class="note">Os nomes dos produtos seguem o que existe hoje. A divisão de cada ativo precisa ser validada com a área comercial.</p>
+  </section>
+
+  <section id="nomes">
+    <div class="head"><div class="eyebrow">Os nomes</div><h2>O que muda e o que fica</h2></div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Hoje</th><th>Proposta</th><th>Situação</th><th>Por quê</th></tr></thead>
+        <tbody>
+          <tr><td><b>Cena Empreendimentos</b> (grupo)</td><td><b>Grupo CENA</b></td><td><span class="chip k">Decidido</span></td><td>O nome é Grupo CENA e o logo é só "cena", sem "empreendimentos". CENA Empreendimentos passa a ser divisão e produto.</td></tr>
+          <tr><td><b>Locações</b></td><td><b>CENA Propriedades</b></td><td><span class="chip k">Decidido</span></td><td>Descreve o patrimônio que o grupo possui e administra, não só o serviço de aluguel. Na transição, aparece como "CENA Propriedades · antiga CENA Locações", porque os clientes de anos conhecem a marca atual.</td></tr>
+          <tr><td><b>Urbanismo</b></td><td><b>CENA Urbanismo</b></td><td><span class="chip k">Manter</span></td><td>Claro e já reconhecido. Só ganha o prefixo.</td></tr>
+          <tr><td><b>Empreendimentos</b> (divisão)</td><td><b>CENA Empreendimentos</b></td><td><span class="chip k">Decidido</span></td><td>Fica como divisão e produto. É onde ficam o Arkki Home Club e o Côte D'Azur Ville.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="pilares">
+    <div class="head"><div class="eyebrow">Grupo CENA · Institucional</div><h2>Propósito, visão e três pilares</h2>
+      <p class="lead">Um posicionamento autoral, ligado à história da família e à transformação de Florianópolis. Sem valores corporativos genéricos.</p></div>
+    <div class="lines" style="margin-top:0">
+      <div><span>Incorporar valor à vida.</span><small>PROPÓSITO · MISSÃO</small></div>
+      <div><span>Recontar a forma de viver nas cidades.</span><small>VISÃO</small></div>
+    </div>
+    <div class="pillars">
+      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Legados que permanecem</h3><p>A história, a tradição familiar e a continuidade entre gerações.</p></div><div class="base" aria-hidden="true"></div></article>
+      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Olhares que enxergam o invisível</h3><p>A capacidade de reconhecer o potencial dos lugares e transformá-los.</p></div><div class="base" aria-hidden="true"></div></article>
+      <article class="pillar"><div class="cap" aria-hidden="true"></div><div class="shaft"><h3>Novos capítulos</h3><p>A evolução das cidades, a inovação e a construção do futuro.</p></div><div class="base" aria-hidden="true"></div></article>
+    </div>
+    <div class="lines" style="margin-top:32px">
+      <div><span>Unindo histórias, criando legados.</span><small>ASSINATURA</small></div>
+    </div>
+  </section>
+
+  <section id="empreendimentos">
+    <div class="head"><div class="eyebrow">CENA Empreendimentos</div><h2>Incorporação com foco no lugar</h2>
+      <p class="lead">Edifícios residenciais e comerciais pensados do conforto da rotina de quem vive nas unidades ao impacto nas vizinhanças. Hoje a divisão reúne o Arkki Home Club e o Côte D'Azur Ville.</p></div>
+    <h3 style="margin:0 0 16px">Os três pilares dos empreendimentos verticais</h3>
+    <div class="finds">
+      <div class="find"><b>Conexão com o local</b><span>Maximizar o potencial do terreno e deixar gentilezas urbanas nas vizinhanças.</span></div>
+      <div class="find"><b>Menor custo de condomínio</b><span>Sem perder a qualidade do que é entregue.</span></div>
+      <div class="find"><b>Conceito e posicionamento</b><span>Do produto residencial ou comercial, definido antes do projeto.</span></div>
+    </div>
+    <p class="note">Os três pilares vêm do manual de marca atual.</p>
+  </section>
+
+  <section id="assinatura">
+    <div class="head"><div class="eyebrow">Assinatura dos empreendimentos</div><h2>O símbolo de CENA junto ao nome</h2>
+      <p class="lead">A assinatura é um símbolo da CENA no canto superior direito do nome do produto, na mesma cor. Três versões do logo do Arkki Home Club, lado a lado.</p></div>
+    <div class="sigset">
+      <article class="sigcard">
+        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 258.11 60.92" role="img" aria-label="Logo Arkki sem assinatura"><use href="#arkki"/></svg></div>
+        <div class="body"><span class="chip c">Sem assinatura</span><h3>O logo do produto</h3><p>Como o Arkki Home Club existe hoje, em uma só cor. É a base das outras versões.</p></div>
+      </article>
+      <article class="sigcard pref">
+        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 706.05 205.77" role="img" aria-label="Logo Arkki com frame"><use href="#arkki-frame"/></svg></div>
+        <div class="body"><span class="chip k">Preferida</span><h3>Com frame</h3><p>O canto vazado da CENA no canto superior direito do nome. É a versão mais leve, resiste bem em tamanho pequeno e não se confunde com o símbolo de copyright.</p></div>
+      </article>
+      <article class="sigcard">
+        <div class="stage" data-bg="verde"><svg class="sigimg" viewBox="0 0 704.82 206.05" role="img" aria-label="Logo Arkki com o C de CENA em círculo"><use href="#arkki-c"/></svg></div>
+        <div class="body"><span class="chip t">Alternativa</span><h3>Com C</h3><p>O C de CENA dentro de um círculo. É a mais explícita, mas em tamanho pequeno as molduras somem e o símbolo pode ser lido como um ©.</p></div>
+      </article>
+    </div>
+    <div class="rule">
+      <div class="n" aria-hidden="true"></div>
+      <div><h3>Preferência: usar só o frame</h3><p style="margin-top:8px;color:var(--muted)">A escolha é seguir somente com a versão com frame, em todos os formatos. A versão com C fica de fora por enquanto. Tamanho mínimo e área de respiro ainda precisam ser definidos.</p></div>
+    </div>
+  </section>
+
+  <section id="assinatura-arquitetura">
+    <div class="head"><div class="eyebrow">Assinatura de arquitetura</div><h2>Os diferenciais construtivos da CENA</h2>
+      <p class="lead">O que todo empreendimento entrega e que o comprador pode conferir. Cada item é um critério de projeto ligado a um dos três pilares.</p></div>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Diferencial</th><th>O que significa</th><th>O que falta definir</th><th>Pilar</th></tr></thead>
+        <tbody>
+          <tr><td><b>Bem-estar empregado</b></td><td>Cada projeto tem um conceito de bem-estar próprio e traduzido em elementos construtivos, sem ficar só no texto de venda. O Arkki é o modelo: Wellness &amp; Craft.</td><td>Nomear o conceito de cada projeto e listar de 3 a 5 elementos que o provam.</td><td>Novos capítulos</td></tr>
+          <tr><td><b>Piscina de raia</b></td><td>Item fixo em todo empreendimento residencial. A referência é a raia semiolímpica do Côte D'Azur Ville.</td><td>Comprimento mínimo, se é aquecida ou coberta, e a regra de exceção para terrenos onde não cabe.</td><td>Novos capítulos</td></tr>
+          <tr><td><b>Fachada com arborismo</b></td><td>Fachada com vegetação viva: cerca viva e "mato vivo". O verde faz parte da imagem do prédio na rua.</td><td>Percentual de fachada, espécies nativas, irrigação e manutenção. Atenção ao custo de condomínio, que o manual diz querer reduzir.</td><td>Olhares que enxergam o invisível</td></tr>
+          <tr><td><b>Figura de autoridade e/ou embaixador</b></td><td>Todo empreendimento entrega a assinatura de alguém que o endossa: uma autoridade técnica (arquiteto, paisagista) ou um embaixador (um rosto ligado ao tema).</td><td>Quem se encaixa em cada tipo, como é contratado e por quanto tempo a imagem pode ser usada.</td><td>Legados que permanecem</td></tr>
+          <tr><td><b>Revitalização</b></td><td>Todo projeto deixa algo para a cidade e para o entorno: calçada, praça, fachada ativa, recuperação de patrimônio.</td><td>Um mínimo obrigatório por projeto e como medir.</td><td>Olhares que enxergam o invisível</td></tr>
+          <tr><td><b>Conceito com legado</b></td><td>Cada empreendimento conta uma história que carrega o legado e o valor da CENA. Exemplos citados: Arkki (bem-estar) e Casa Ruth (história).</td><td>O que é a Casa Ruth e como a história de cada projeto é escolhida.</td><td>Legados que permanecem</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Esta seção parte da nota "Assinatura de arquitetura" do quadro de rebranding. Onde diz "a definir", a nota não traz a informação e a decisão é da diretoria.</p>
+  </section>
+
+  <section id="urbanismo">
+    <div class="head"><div class="eyebrow">CENA Urbanismo</div><h2>Uma divisão em construção</h2>
+      <p class="lead">Esta divisão ainda precisa de narrativa. Abaixo, o que já existe e o que pode crescer.</p></div>
+    <h3 style="margin:0 0 16px">O que já existe</h3>
+    <div class="finds">
+      <div class="find"><b>Bairros, condomínios e loteamentos</b><span>Residenciais e industriais, em Navegantes e em Governador Celso Ramos.</span></div>
+      <div class="find"><b>Três pilares de trabalho</b><span>Trabalho conjunto com a região, ampla pesquisa de mercado e espaços diferenciados.</span></div>
+      <div class="find"><b>Capital e porte próprios</b><span>Pesquisa de mercado e aporte. Quando a oportunidade não pede investimento de fora, a CENA desenvolve por conta própria e traz o que é escasso.</span></div>
+    </div>
+    <h3 style="margin:56px 0 16px">O que pode crescer</h3>
+    <div class="finds">
+      <div class="find"><span class="chip t">A discutir</span><b>Padrão de bairro</b><span>Percurso caminhável e arborizado, praça central, drenagem planejada e vegetação preservada.</span></div>
+      <div class="find"><span class="chip t">A discutir</span><b>Identidade por bairro</b><span>Cada loteamento com nome próprio e uma história do lugar, como os produtos verticais.</span></div>
+      <div class="find"><span class="chip t">A discutir</span><b>Duas frentes</b><span>Urbanismo residencial e distritos de trabalho, com linguagens diferentes.</span></div>
+      <div class="find"><span class="chip t">A discutir</span><b>Serviços depois da venda</b><span>Associação de moradores, manutenção das áreas verdes e programação de comunidade.</span></div>
+    </div>
+  </section>
+
+  <section id="propriedades">
+    <div class="head"><div class="eyebrow">CENA Propriedades</div><h2>Locações é o que fazemos, Propriedades é o que somos</h2>
+      <p class="lead">Seis razões para trocar o nome, com base no que a Bruna descreve da divisão e no que a história da família mostra.</p></div>
+    <div class="finds">
+      <div class="find"><b>Diz o que a divisão é</b><span>É uma carteira própria e exclusiva, que não vai ao mercado. "Locações" nomeia uma atividade. "Propriedades" nomeia o que o grupo possui.</span></div>
+      <div class="find"><b>Combina com a exclusividade</b><span>A carteira está 100% alugada e tem fila de espera. O nome precisa soar a algo que se procura, e não a uma vitrine aberta.</span></div>
+      <div class="find"><b>Cresce sem trocar de nome</b><span>Aguenta imóvel para locação, para operação, como o Armazém Rita Maria, ou para outros usos no futuro.</span></div>
+      <div class="find"><b>Casa com a herança</b><span>O patrimônio Hoepcke começou em terrenos próprios, e o Armazém são galpões da família de 1896.</span></div>
+      <div class="find"><b>Mantém o padrão do grupo</b><span>CENA Empreendimentos, Urbanismo e Propriedades têm o mesmo ritmo. "Locações" era o elo mais fraco.</span></div>
+      <div class="find"><b>Organiza o portfólio</b><span>Hoje o Carl Hoepcke e o Armazém aparecem em Empreendimentos, mesmo sendo de locação. Com o novo nome, o site separa cada um no lugar certo.</span></div>
+    </div>
+    <div class="tbl" style="margin-top:32px">
+      <table>
+        <thead><tr><th>Objeção</th><th>Resposta</th></tr></thead>
+        <tbody>
+          <tr><td><b>Os clientes conhecem Cena Locações.</b></td><td>Por isso a transição: "CENA Propriedades · antiga CENA Locações". O nome muda e a relação continua.</td></tr>
+          <tr><td><b>Propriedades é genérico.</b></td><td>É um nome de categoria. A personalidade vem do descritivo "Gestão e curadoria de imóveis próprios" e da frase "Quem usa ensina quem projeta".</td></tr>
+          <tr><td><b>Quem procura aluguel não vai achar.</b></td><td>"Locação" continua nos textos, nos canais e na busca. O cliente digita a palavra, a marca não precisa dela.</td></tr>
+          <tr><td><b>Parece venda de imóveis.</b></td><td>Por isso o descritivo é obrigatório nos primeiros anos.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Ponto fraco a assumir: o nome sozinho não carrega a curadoria dos térreos, que é o diferencial descrito no vídeo. Quem faz esse trabalho é o descritivo e a comunicação.</p>
+    <div class="lines">
+      <div><span>Quem usa ensina quem projeta.</span><small>FRASE DA DIVISÃO</small></div>
+    </div>
+  </section>
+
+  <section id="cor">
+    <div class="head"><div class="eyebrow">Cores e logos</div><h2>Dois azuis, um verde e o bordô fora</h2>
+      <p class="lead">O azul profundo é do Grupo CENA e o azul do manual atual fica com Empreendimentos. Escolha a cor de Propriedades e veja a página inteira mudar, inclusive a arquitetura de marca lá em cima.</p></div>
+    <div class="opts" role="radiogroup" aria-label="Cor de Propriedades">
+      <input type="radio" name="prop" id="oa" value="#5D3754" data-pantone="7659 C" data-noite="#0C2340" data-azul="#375172" data-verde="#5B7855" data-ink="#FFFFFF" data-txt="Ameixa: escura e fria, bem longe do bordô. Tem matiz próprio, diferente dos azuis e do verde, e dá a Propriedades ar de patrimônio. Ela e o azul de Empreendimentos têm luminosidade quase igual, então não devem aparecer lado a lado sem um separador." checked><label for="oa"><i style="background:linear-gradient(90deg,#375172 50%,#5D3754 50%)"></i><span>A · Ameixa (recomendada)<small>#5D3754 · Pantone 7659 C</small></span></label>
+      <input type="radio" name="prop" id="ob" value="#6E6259" data-pantone="Warm Gray 11 C" data-noite="#0C2340" data-azul="#375172" data-verde="#5B7855" data-ink="#FFFFFF" data-txt="Pedra: cinza quente, sóbria e firme. Passa solidez e fica mais clara que o azul de Empreendimentos, o que ajuda a separar as duas divisões. Em contrapartida, é discreta ao lado do verde e pede boas fotos para não parecer apagada."><label for="ob"><i style="background:linear-gradient(90deg,#375172 50%,#6E6259 50%)"></i><span>B · Pedra<small>#6E6259 · Pantone Warm Gray 11 C</small></span></label>
+    </div>
+    <div class="palette">
+      <div class="sw noite"><b>Azul-noite</b><span id="hnoite">#0C2340 · Grupo CENA · Pantone 289 C</span></div>
+      <div class="sw azul"><b>Azul</b><span id="hazul">#375172 · Empreendimentos · Pantone 295 U</span></div>
+      <div class="sw verde"><b>Verde</b><span id="hverde">#5B7855 · Urbanismo · Pantone 2266 U</span></div>
+      <div class="sw prop"><b>Propriedades</b><span id="hex">#5D3754 · Pantone 7659 C</span></div>
+      <div class="sw off"><b>Off-white</b><span>#F3F5F7 · Fundo</span></div>
+    </div>
+    <p class="propnote" id="propnote" aria-live="polite"></p>
+    <p class="note">Os Pantones 289 C, 295 U e 2266 U são referências a confirmar no Pantone Guide. O 295 U e o 2266 U vêm do manual atual. A ameixa usa o Pantone 7659 C e a pedra, o Warm Gray 11 C.</p>
+  
+    <h3 style="margin:56px 0 16px">Logos do grupo</h3>
+    <div class="sigset">
+      <article class="sigcard">
+        <div class="stage" data-bg="azul"><svg class="sigimg" viewBox="0 0 580.01 165.84" role="img" aria-label="Logo Grupo CENA"><use href="#grupo-cena"/></svg></div>
+        <div class="body"><span class="chip c">Fundo escuro</span><h3>Grupo CENA</h3><p>O logo "cena" com a palavra "grupo" acima. É o logo do hub institucional.</p></div>
+      </article>
+      <article class="sigcard">
+        <div class="stage" data-bg="claro"><svg class="sigimg" viewBox="50 143 312 96.5" role="img" aria-label="Logo cena"><use href="#logo-cena"/></svg></div>
+        <div class="body"><span class="chip c">Fundo claro</span><h3>cena</h3><p>O logo simples, sem "empreendimentos". Vale para a barra, o rodapé e usos em tamanho pequeno.</p></div>
+      </article>
+    </div>
   </section>
 
   <section id="decisoes">
