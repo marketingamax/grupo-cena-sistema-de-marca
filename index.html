@@ -13,17 +13,17 @@
 <style>
 /* Conceito: cada parte é uma "cena". O fundo da página muda de cor conforme a divisão em que você está, e o canto vazado da CENA fecha como moldura de visor sobre os títulos. Mulish em tudo, cantos retos. */
 :root{
-  --noite:#0C2340; --azul:#375172; --azul-fundo:#1B365D; --verde:#5B7855; --ameixa:#5D3754; --claro:#E6EDF5; --papel:#F4F7FB;
+  --noite:#0C2340; --azul:#375172; --verde:#5B7855; --ameixa:#5D3754; --branco:#FFFFFF; --claro:#E7EAEE;
   --font:'Mulish','Helvetica Neue',Arial,sans-serif;
-  --bg:#0C2340; --fg:#F4F7FB; --muted:#B4C3D8; --line:rgba(244,247,251,.2); --acc:#8FB0DC; --onacc:#0C2340;
+  --bg:#0C2340; --fg:#FFFFFF; --muted:rgba(255,255,255,.74); --lab:rgba(255,255,255,.66); --line:rgba(255,255,255,.22); --acc:#FFFFFF; --onacc:#0C2340;
   --gut:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px));
   --gutr:max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px));
   color-scheme:dark;
 }
-body[data-tone="light"]{--bg:#E6EDF5;--fg:#0C2340;--muted:#4A6283;--line:rgba(12,35,64,.22);--acc:#375172;--onacc:#F4F7FB}
-body[data-tone="blue"]{--bg:#375172;--fg:#F4F7FB;--muted:#D3DEEE;--line:rgba(244,247,251,.28);--acc:#C5D6EC;--onacc:#0C2340}
-body[data-tone="green"]{--bg:#5B7855;--fg:#F4F7FB;--muted:#F4F7FB;--line:rgba(244,247,251,.34);--acc:#DCEBD7;--onacc:#1F301D}
-body[data-tone="plum"]{--bg:#5D3754;--fg:#F7ECF4;--muted:#E8D3E2;--line:rgba(247,236,244,.28);--acc:#EBCFE3;--onacc:#2A1727}
+body[data-tone="light"]{--bg:#E7EAEE;--fg:#0C2340;--muted:rgba(12,35,64,.74);--lab:#375172;--line:rgba(12,35,64,.22);--acc:#375172;--onacc:#FFFFFF}
+body[data-tone="blue"]{--bg:#375172;--fg:#FFFFFF;--muted:rgba(255,255,255,.82);--lab:rgba(255,255,255,.72);--line:rgba(255,255,255,.28);--acc:#FFFFFF;--onacc:#0C2340}
+body[data-tone="green"]{--bg:#5B7855;--fg:#FFFFFF;--muted:#FFFFFF;--lab:rgba(255,255,255,.8);--line:rgba(255,255,255,.34);--acc:#FFFFFF;--onacc:#0C2340}
+body[data-tone="plum"]{--bg:#5D3754;--fg:#FFFFFF;--muted:rgba(255,255,255,.82);--lab:rgba(255,255,255,.72);--line:rgba(255,255,255,.28);--acc:#FFFFFF;--onacc:#0C2340}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -57,12 +57,12 @@ p,h1,h2,h3{margin:0}
 .stack{display:grid;gap:clamp(20px,2.4vw,36px)}
 
 /* tipografia */
-.slate{display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,3vw,44px);font-size:14px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.slate{display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,3vw,44px);font-size:14px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--lab)}
 .slate b{display:inline-block;padding:5px 10px;border:2px solid currentColor;line-height:1}
-.kicker{font-size:14px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.kicker{font-size:14px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--lab)}
 .h2{font-size:clamp(34px,5.4vw,80px);font-weight:200;line-height:1;letter-spacing:-.02em;text-transform:uppercase;text-wrap:balance}
 .h2 b{font-weight:800}
-.h2 em{font-style:normal;font-weight:300;color:var(--acc)}
+.h2 em{font-style:normal;font-weight:700;color:var(--acc)}
 .h3{font-size:clamp(22px,2.3vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.005em}
 .lead{font-size:clamp(18px,1.65vw,23px);line-height:1.55;color:var(--muted);max-width:54ch}
 .small{font-size:15px;line-height:1.5;color:var(--muted)}
@@ -70,7 +70,7 @@ p,h1,h2,h3{margin:0}
 .acc{color:var(--acc)}
 .stm{font-size:clamp(28px,4.2vw,64px);font-weight:200;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}
 .stm b{font-weight:800}
-.label{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.label{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--lab)}
 .tagp{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:2px solid var(--acc);color:var(--acc);line-height:1.2}
 .tagp.fill{background:var(--acc);color:var(--onacc)}
 
@@ -78,9 +78,9 @@ p,h1,h2,h3{margin:0}
 .rows{display:grid}
 .row{display:grid;grid-template-columns:var(--rc,minmax(0,1fr) minmax(0,2fr));gap:10px clamp(24px,4vw,64px);padding-block:clamp(20px,2.2vw,32px);border-top:1px solid var(--line);align-items:baseline}
 .row:last-child{border-bottom:1px solid var(--line)}
-.row .lb{display:none;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.row .lb{display:none;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lab)}
 .row.head{padding-block:14px;align-items:end}
-.row.head span{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+.row.head span{font-size:13px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--lab)}
 @media(max-width:760px){.row{grid-template-columns:minmax(0,1fr)}.row .lb{display:block}.row.head{display:none}}
 .col{border-top:3px solid var(--acc);padding-top:22px;display:grid;gap:14px;align-content:start}
 
@@ -95,7 +95,7 @@ p,h1,h2,h3{margin:0}
 .in .wipe,.wipe:not(.arm){background-size:100% 3px}
 
 /* moldura de visor: o canto original da CENA, grosso e cheio, em dois cantos opostos */
-[data-frame]{position:relative;--ft:10px;--fs:clamp(34px,4.4vw,64px)}
+[data-frame]{position:relative;--ft:8px;--fs:clamp(34px,4.4vw,60px)}
 [data-frame]::before,[data-frame]::after{content:"";position:absolute;width:var(--fs);height:var(--fs);pointer-events:none;transition:transform 1s cubic-bezier(.2,.7,.1,1),opacity .6s}
 [data-frame]::before{top:calc(var(--fo,0px)*-1);right:calc(var(--fo,0px)*-1);background:linear-gradient(var(--acc),var(--acc)) 0 0/100% var(--ft) no-repeat,linear-gradient(var(--acc),var(--acc)) 100% 0/var(--ft) 100% no-repeat}
 [data-frame]::after{bottom:calc(var(--fo,0px)*-1);left:calc(var(--fo,0px)*-1);background:linear-gradient(var(--acc),var(--acc)) 0 100%/100% var(--ft) no-repeat,linear-gradient(var(--acc),var(--acc)) 0 0/var(--ft) 100% no-repeat}
@@ -103,7 +103,7 @@ p,h1,h2,h3{margin:0}
 [data-frame].arm:not(.in)::after{opacity:0;transform:translate(-44px,44px)}
 @keyframes snapa{from{opacity:0;transform:translate(44px,-44px)}}
 @keyframes snapb{from{opacity:0;transform:translate(-44px,44px)}}
-.hero [data-frame]{--fs:clamp(44px,6vw,96px);--ft:14px}
+.hero [data-frame]{--fs:clamp(40px,5vw,76px);--ft:10px}
 .hero [data-frame]::before{animation:snapa 1.1s cubic-bezier(.2,.7,.1,1) .6s both}
 .hero [data-frame]::after{animation:snapb 1.1s cubic-bezier(.2,.7,.1,1) .6s both}
 
@@ -143,7 +143,7 @@ p,h1,h2,h3{margin:0}
 .toc{list-style:none;margin:0;padding:0;display:grid}
 .toc a,.toc .tr{display:grid;grid-template-columns:clamp(44px,6vw,88px) minmax(0,1fr) auto;gap:16px;align-items:baseline;padding-block:clamp(16px,2vw,26px);border-top:1px solid var(--line);text-decoration:none;transition:padding-left .35s cubic-bezier(.2,.7,.1,1),color .3s}
 .toc li:last-child a,.toc li:last-child .tr{border-bottom:1px solid var(--line)}
-.toc .n{font-size:15px;font-weight:800;letter-spacing:.1em;color:var(--acc);font-variant-numeric:tabular-nums}
+.toc .n{font-size:15px;font-weight:800;letter-spacing:.1em;color:var(--lab);font-variant-numeric:tabular-nums}
 .toc .t{font-size:clamp(22px,3vw,44px);font-weight:300;letter-spacing:-.01em}
 .toc .s{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
 .toc a:hover,.toc a:focus-visible{padding-left:14px;color:var(--acc)}
@@ -167,12 +167,12 @@ p,h1,h2,h3{margin:0}
 .hub .drops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px);width:100%}
 .hub .dv{display:grid;gap:0}
 .hub .dv .st{justify-self:center;height:clamp(22px,3vw,40px)}
-.dcard{padding:clamp(22px,2.6vw,36px);display:grid;gap:14px;align-content:start;color:#F4F7FB}
+.dcard{padding:clamp(22px,2.6vw,36px);display:grid;gap:14px;align-content:start;color:#FFFFFF}
 .dcard.e{background:#375172}.dcard.u{background:#5B7855}.dcard.p{background:#5D3754}
-.dcard .label{color:rgba(244,247,251,.82)}
+.dcard .label{color:rgba(255,255,255,.82)}
 .dcard h3{font-size:clamp(22px,2.4vw,34px);font-weight:800;line-height:1.1}
-.dcard ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:16px;color:#F4F7FB}
-.dcard li{padding-top:6px;border-top:1px solid rgba(244,247,251,.3)}
+.dcard ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:16px;color:#FFFFFF}
+.dcard li{padding-top:6px;border-top:1px solid rgba(255,255,255,.3)}
 @media(max-width:800px){.hub .hb,.hub .dv .st{display:none}.hub .drops{grid-template-columns:minmax(0,1fr)}}
 .nodes{display:flex;flex-wrap:wrap;gap:10px}
 
@@ -194,8 +194,13 @@ p,h1,h2,h3{margin:0}
 .pillar .shaft{margin-block:40px;border-inline:2px solid var(--line);padding:clamp(24px,3vw,44px) clamp(20px,2.4vw,36px);display:grid;gap:18px;align-content:start;clip-path:inset(0 0 0 0);transition:clip-path 1.3s cubic-bezier(.2,.7,.1,1) var(--d,0s)}
 .pillars.arm:not(.in) .shaft{clip-path:inset(100% 0 0 0)}
 .pillar h3{font-size:clamp(22px,2.4vw,34px);font-weight:300;text-transform:uppercase;letter-spacing:.02em;line-height:1.12}
-.pillar dl{margin:0;display:grid;gap:14px}
-.pillar dt{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.pillar dl{margin:0;display:grid;gap:18px}
+.pillar .tg{color:var(--muted);font-size:17px;line-height:1.45}
+.pillar details.more{border:0;margin-top:6px}
+.pillar details.more summary{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);padding-block:12px 4px}
+.pillar details.more .full{display:grid;gap:12px;padding-top:12px;font-size:16px;line-height:1.55;color:var(--muted)}
+.pillar details.more[open] summary::after{transform:rotate(45deg)}
+.pillar dt{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--lab)}
 .pillar dd{margin:2px 0 0;font-size:17px;line-height:1.45}
 @media(max-width:900px){.pillars{grid-template-columns:minmax(0,1fr)}}
 
@@ -211,13 +216,13 @@ p,h1,h2,h3{margin:0}
 
 /* cores */
 .bars{display:flex;gap:0;height:clamp(360px,44vw,560px)}
-.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2vw,32px);background:var(--c);color:#F4F7FB;transition:flex-grow .7s cubic-bezier(.2,.7,.1,1);cursor:pointer;min-width:0;position:relative}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2vw,32px);background:var(--c);color:#FFFFFF;transition:flex-grow .7s cubic-bezier(.2,.7,.1,1);cursor:pointer;min-width:0;position:relative}
 .bar:hover,.bar:focus-visible,.bar.on{flex-grow:2.6}
 .bar h3{font-size:clamp(20px,2.2vw,32px);font-weight:800;line-height:1.1}
-.bar .lab{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:rgba(244,247,251,.85)}
+.bar .lab{font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:8px;color:rgba(255,255,255,.85)}
 .bar .sp{display:grid;gap:2px;font-size:clamp(15px,1.3vw,19px);margin-top:10px;max-height:0;opacity:0;overflow:hidden;transition:max-height .6s,opacity .5s .1s}
 .bar:hover .sp,.bar:focus-visible .sp,.bar.on .sp{max-height:90px;opacity:1}
-.bar.n{box-shadow:inset 0 0 0 2px rgba(143,176,220,.5)}
+.bar.n{box-shadow:inset 0 0 0 2px rgba(255,255,255,.4)}
 @media(max-width:760px){.bars{flex-direction:column;height:auto}.bar{flex:none;min-height:120px}.bar .sp{max-height:none;opacity:1}}
 
 /* acordeão */
@@ -232,6 +237,76 @@ details p{padding-bottom:clamp(18px,2vw,28px);max-width:62ch;color:var(--muted)}
 footer{padding-block:48px 72px;border-top:1px solid var(--line)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;justify-content:space-between;align-items:center}
 footer svg{height:22px;width:auto;color:var(--fg)}
+
+
+/* carrossel das referências */
+.car{border-top:2px solid var(--fg)}
+.car-bar{display:flex;flex-wrap:wrap;gap:16px 24px;justify-content:space-between;align-items:center;padding-block:18px;border-bottom:1px solid var(--line)}
+.car-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.car-tabs button{font:800 14px var(--font);letter-spacing:.14em;text-transform:uppercase;padding:11px 20px;background:transparent;color:var(--fg);border:2px solid var(--line);cursor:pointer;transition:background-color .3s,color .3s,border-color .3s}
+.car-tabs button[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.car-tabs button:hover{border-color:var(--fg)}
+.car-nav{display:flex;align-items:center;gap:14px}
+.car-nav button{width:44px;height:44px;display:grid;place-items:center;background:transparent;color:var(--fg);border:2px solid var(--line);cursor:pointer;transition:border-color .3s}
+.car-nav button:hover{border-color:var(--fg)}
+.car-nav .prev svg{transform:rotate(180deg)}
+.car-nav .count{font-size:14px;font-weight:800;letter-spacing:.12em;font-variant-numeric:tabular-nums;color:var(--muted);min-width:46px;text-align:center}
+.pane{padding-top:clamp(28px,3.4vw,48px);display:grid;gap:clamp(28px,3.4vw,48px);animation:paneIn .6s cubic-bezier(.2,.7,.1,1)}
+@keyframes paneIn{from{opacity:0;transform:translateX(18px)}}
+.pane-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
+.pane-head .h3{font-size:clamp(28px,3.4vw,48px);font-weight:800}
+.pane-head .mut{flex-basis:100%}
+.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,72px)}
+.side{display:grid;gap:14px;align-content:start}
+.side.cena{border-left:2px solid var(--line);padding-left:clamp(20px,3vw,48px)}
+.side .root{width:100%}
+.side .bh{justify-items:stretch}
+.side .row2{grid-template-columns:repeat(auto-fit,minmax(104px,1fr))}
+.side .row2.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.side .tile{min-height:68px;padding:10px 12px}
+.side .tile .lg{height:clamp(24px,2.6vw,38px)}
+.side .tile.sq{aspect-ratio:auto;min-height:84px;padding:8px}
+.side .tile.sq .lg{height:66px}
+.side .row2.cn{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ct{padding:14px;color:#FFFFFF;display:grid;gap:8px;align-content:start;min-width:0}
+.ct b{font-size:clamp(14px,1.3vw,17px);font-weight:800;line-height:1.2}
+.ct span{font-size:13px;line-height:1.35;color:rgba(255,255,255,.86)}
+.diff{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,72px)}
+.diff ul{margin:0;padding:0;list-style:none;display:grid;gap:14px}
+.diff li{padding-top:14px;border-top:1px solid var(--line);line-height:1.5}
+.verdict{font-size:clamp(20px,2.2vw,30px);font-weight:300;line-height:1.35;max-width:60ch;border-left:3px solid var(--acc);padding-left:20px}
+@media(max-width:900px){.vs,.diff{grid-template-columns:minmax(0,1fr)}.side.cena{border-left:0;padding-left:0;border-top:2px solid var(--line);padding-top:24px}}
+@media(max-width:560px){.side .row2.cn{grid-template-columns:minmax(0,1fr)}}
+/* régua de modelos */
+.spec{display:grid;gap:0}
+.spec-ends{display:flex;justify-content:space-between;gap:16px;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:14px}
+.spec-row{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-areas:"n bar" ". t";gap:4px 18px;align-items:center;padding-block:16px;border-top:1px solid var(--line)}
+.spec-row b{grid-area:n;font-size:20px;font-weight:800}
+.spec-row i{grid-area:bar;position:relative;display:block;height:2px;background:var(--line)}
+.spec-row i::after{content:"";position:absolute;top:50%;left:var(--x);width:18px;height:18px;border-radius:50%;background:var(--fg);transform:translate(-50%,-50%);transition:left 1.1s cubic-bezier(.2,.7,.1,1)}
+.spec-row.us i::after{background:var(--acc);box-shadow:0 0 0 4px var(--bg),0 0 0 6px var(--acc)}
+.spec-row span{grid-area:t;font-size:15px;color:var(--muted)}
+.spec.arm:not(.in) .spec-row i::after{left:0}
+.spec .small{padding-top:16px;border-top:1px solid var(--line)}
+
+/* gradientes suaves, só com as cores da marca */
+.glows{position:fixed;inset:0;z-index:0;pointer-events:none}
+.gl{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.gl-navy{background:radial-gradient(ellipse 80% 70% at 95% 0%,rgba(55,81,114,.62),transparent 62%),radial-gradient(ellipse 70% 60% at 0% 100%,rgba(55,81,114,.34),transparent 60%)}
+.gl-light{background:radial-gradient(ellipse 80% 70% at 100% 0%,rgba(55,81,114,.16),transparent 60%),radial-gradient(ellipse 70% 60% at 0% 100%,rgba(91,120,85,.12),transparent 60%)}
+.gl-blue{background:radial-gradient(ellipse 80% 70% at 0% 0%,rgba(12,35,64,.5),transparent 62%),radial-gradient(ellipse 70% 60% at 100% 100%,rgba(91,120,85,.28),transparent 60%)}
+.gl-green{background:radial-gradient(ellipse 80% 70% at 100% 0%,rgba(55,81,114,.42),transparent 62%),radial-gradient(ellipse 70% 60% at 0% 100%,rgba(12,35,64,.34),transparent 60%)}
+.gl-plum{background:radial-gradient(ellipse 80% 70% at 100% 0%,rgba(12,35,64,.46),transparent 62%),radial-gradient(ellipse 70% 60% at 0% 100%,rgba(55,81,114,.34),transparent 58%)}
+body[data-tone="navy"] .gl-navy,body[data-tone="light"] .gl-light,body[data-tone="blue"] .gl-blue,body[data-tone="green"] .gl-green,body[data-tone="plum"] .gl-plum{opacity:1}
+main,footer,.strip{position:relative;z-index:1}
+.slate::after{content:"";flex:1;max-width:240px;height:2px;background:linear-gradient(90deg,var(--lab),transparent)}
+.col{border-top:3px solid var(--acc);border-image:linear-gradient(90deg,var(--acc),transparent 88%) 1}
+.prog{background:linear-gradient(90deg,#FFFFFF,#5B7855 55%,#5D3754)}
+.dcard.e{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#375172}
+.dcard.u{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#5B7855}
+.dcard.p{background:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14)),#5D3754}
+.bar{background:linear-gradient(165deg,rgba(255,255,255,.10),rgba(0,0,0,.16)),var(--c)}
+.ct{background-image:linear-gradient(155deg,rgba(255,255,255,.10),rgba(0,0,0,.14))}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -277,7 +352,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 .fg{margin:0;display:grid;gap:8px;align-content:start}
 .fg figcaption{font-size:13px;line-height:1.35;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .tile{display:grid;place-items:center;padding:clamp(14px,2vw,26px);min-height:clamp(96px,10vw,140px)}
-.tile.dk{background:#0C2340}.tile.lt{background:#F4F7FB}.tile.sq{aspect-ratio:1/1;padding:6%}
+.tile.dk{background:#0C2340}.tile.lt{background:#FFFFFF}.tile.sq{aspect-ratio:1/1;padding:6%}
 .tile .lg{width:100%;height:clamp(40px,5vw,70px)}.tile.sq .lg{height:100%}
 @media(max-width:560px){.bh .row2.two{grid-template-columns:minmax(0,1fr)}}
 </style>
@@ -295,6 +370,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
   </defs>
 </svg>
 
+<div class="glows" aria-hidden="true"><i class="gl gl-navy"></i><i class="gl gl-light"></i><i class="gl gl-blue"></i><i class="gl gl-green"></i><i class="gl gl-plum"></i></div>
 <div class="prog" aria-hidden="true"></div>
 <header class="top">
   <a href="#topo" aria-label="CENA, início"><svg viewBox="50 143 326 96.5" role="img" aria-label="CENA"><use href="#v-cena"/></svg></a>
@@ -317,7 +393,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <!-- HERO -->
 <section class="hero" id="topo" data-tone="navy" data-ch="0">
   <div class="wrap">
-    <div data-frame style="--fs:34px;--fo:18px;padding:clamp(8px,1vw,16px) 0">
+    <div data-frame style="padding:clamp(30px,4vw,60px)">
       <h1 class="display"><span class="mask"><span>Rebranding</span></span><span class="mask"><span class="b">CENA</span></span></h1>
     </div>
     <div class="hero-foot">
@@ -331,7 +407,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="c1" data-tone="navy" data-ch="1">
   <div class="wrap">
     <p class="slate rv"><b>Cena 01</b><span>Abertura e contexto</span></p>
-    <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px"><span class="mask"><span>Por que estamos</span></span><span class="mask"><span><em>evoluindo</em></span></span></h2>
+    <h2 class="h2 rv" style="--fo:14px;padding-block:6px"><span class="mask"><span>Por que estamos</span></span><span class="mask"><span><em>evoluindo</em></span></span></h2>
     <div style="height:clamp(36px,5vw,72px)"></div>
     <div class="rows">
       <div class="pair rv"><p class="from">O nome da CENA fazia dois papéis.</p><span class="ar"></span><p class="to">Grupo CENA e divisões com nomes próprios.</p></div>
@@ -381,7 +457,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
     <p class="slate rv"><b>Cena 02</b><span>Estudo de mercado</span></p>
     <div class="g2">
       <div class="stack">
-        <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px"><span class="mask"><span>Como o</span></span><span class="mask"><span>mercado</span></span><span class="mask"><span><em>organiza</em></span></span><span class="mask"><span><em>suas marcas</em></span></span></h2>
+        <h2 class="h2 rv" style="--fo:14px;padding-block:6px"><span class="mask"><span>Como o</span></span><span class="mask"><span>mercado</span></span><span class="mask"><span><em>organiza</em></span></span><span class="mask"><span><em>suas marcas</em></span></span></h2>
         <p class="lead rv">Arquitetura de marca não é estrutura societária. O estudo olha só para a primeira.</p>
       </div>
       <div class="stack">
@@ -409,95 +485,79 @@ footer svg{height:22px;width:auto;color:var(--fg)}
   </div>
 </section>
 
-<section class="blk" id="cba" data-tone="light" data-ch="2" style="padding-top:0">
+<section class="blk" id="estudo" data-tone="light" data-ch="2" style="padding-top:0">
   <div class="wrap">
-    <p class="kicker rv" style="margin-bottom:20px">Leitura da referência</p>
-    <h2 class="h2 rv" style="font-size:clamp(56px,13vw,200px);font-weight:800;letter-spacing:-.04em;line-height:.9">CBA <em style="font-weight:200">Corp</em></h2>
-    <div style="height:clamp(36px,5vw,72px)"></div>
-    <div class="g3">
-      <div class="col rv"><p class="label">O grupo</p><h3 class="h3">CBA Corp</h3><p class="mut">Plataforma de desenvolvimento imobiliário. Do investidor ao morador.</p></div>
-      <div class="col rv" style="--d:.1s"><p class="label">Alto padrão e luxo</p><h3 class="h3">CBA Empreendimentos</h3><p class="mut">Projetos em Florianópolis assinados por nomes da arquitetura e do paisagismo.</p></div>
-      <div class="col rv" style="--d:.2s"><p class="label">Minha Casa, Minha Vida</p><h3 class="h3">Viva Corp</h3><p class="mut">Faixas 3 e 4. Não leva o nome CBA. Site não aberto.</p></div>
+    <p class="kicker rv" style="margin-bottom:20px">Leitura das referências</p>
+    <h2 class="h2 rv">Cada referência,<br><em>lado a lado com a CENA</em></h2>
+    <div style="height:clamp(32px,4vw,56px)"></div>
+    <div class="car rv" id="car">
+      <div class="car-bar">
+        <div class="car-tabs" role="tablist" aria-label="Referências do estudo">
+          <button type="button" role="tab" id="ct1" aria-selected="true" aria-controls="cp1">CBA Corp</button>
+          <button type="button" role="tab" id="ct2" aria-selected="false" aria-controls="cp2" tabindex="-1">JHSF</button>
+          <button type="button" role="tab" id="ct3" aria-selected="false" aria-controls="cp3" tabindex="-1">Hurbana</button>
+        </div>
+        <div class="car-nav"><button type="button" class="prev" aria-label="Referência anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button><span class="count" aria-live="polite">1 / 3</span><button type="button" class="next" aria-label="Próxima referência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button></div>
+      </div>
+      <div class="pane" id="cp1" role="tabpanel" aria-labelledby="ct1">
+      <div class="pane-head"><h3 class="h3">CBA Corp</h3><span class="tagp">Meio-termo</span><p class="mut">Um hub de duas marcas: uma leva o nome CBA e a outra não.</p></div>
+      <div class="vs">
+        <div class="side"><p class="label">CBA Corp</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-cbc1" role="img" aria-label="CBA" style="aspect-ratio:268/55;width:clamp(86px,10vw,140px);height:auto"></span><span class="lg l-cbc2" role="img" aria-label="Corp" style="aspect-ratio:222/57;width:clamp(72px,8.4vw,116px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-cbaemp" role="img" aria-label="CBA Empreendimentos"></span></div></figure><figure class="fg"><div class="tile lt"><span class="lg l-viva" role="img" aria-label="Viva Corp"></span></div></figure></div><div class="st"></div><div class="row2 sm"><figure class="fg"><div class="tile dk"><span class="lg l-natus" role="img" aria-label="Natus Residence"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-puerto" role="img" aria-label="Puerto Madero"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-physis" role="img" aria-label="Physis Place"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-msunset" role="img" aria-label="Meraki Sunset"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mallure" role="img" aria-label="Meraki Allure"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mbeach" role="img" aria-label="Meraki Beach"></span></div></figure></div></div></div>
+        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Propriedades</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+      </div>
+      <div class="diff">
+        <div class="col"><p class="label">O que distancia</p><ul><li>A Viva Corp não leva o nome CBA. Na CENA, todas as frentes levam o mesmo nome.</li><li>O tom do grupo é de capital e eficiência (“plataforma”). O da CENA é de legado e cidade.</li><li>Duas marcas para dois públicos, luxo e popular. A CENA tem três frentes de naturezas diferentes.</li></ul></div>
+        <div class="col"><p class="label">O que aproxima</p><ul><li>Um site de grupo que leva às marcas, como o hub da CENA.</li><li>Produtos com nome próprio, como o Arkki.</li><li>Um sobrenome por projeto (Meraki Sunset, Allure e Beach), que serve de modelo para a regra de nomes da CENA.</li></ul></div>
+      </div>
+      <p class="verdict">O nome CBA acompanha uma marca, mas a outra caminha sozinha. A estrutura fica entre os dois modelos: nem marca única, nem marcas totalmente independentes.</p>
+      <p class="small">Fontes: cbacorp.com.br e cbaempreendimentos.com.br, home e Quem somos, outubro de 2026. O site da Viva Corp não foi aberto.</p>
     </div>
-    <div style="height:clamp(36px,5vw,64px)"></div>
-    <div class="bh rv" style="margin-top:clamp(36px,5vw,64px)">
-      <p class="label" style="margin-bottom:14px">As marcas do grupo, como aparecem nos sites</p>
-      <div class="root" style="background:#0C2340"><span class="lg l-cbc1" role="img" aria-label="CBA" style="aspect-ratio:268/55;width:clamp(110px,16vw,210px);height:auto"></span><span class="lg l-cbc2" role="img" aria-label="Corp" style="aspect-ratio:222/57;width:clamp(92px,13vw,174px);height:auto"></span></div>
-      <div class="st"></div>
-      <div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-cbaemp" role="img" aria-label="CBA Empreendimentos"></span></div><figcaption>CBA Empreendimentos · alto padrão</figcaption></figure><figure class="fg"><div class="tile lt"><span class="lg l-viva" role="img" aria-label="Viva Corp"></span></div><figcaption>Viva Corp · Minha Casa, Minha Vida</figcaption></figure></div>
-      <div class="st"></div>
-      <div class="row2"><figure class="fg"><div class="tile dk"><span class="lg l-natus" role="img" aria-label="Natus Residence"></span></div><figcaption>Natus Residence · Ponta das Canas</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-puerto" role="img" aria-label="Puerto Madero"></span></div><figcaption>Puerto Madero · Jurerê</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-physis" role="img" aria-label="Physis Place"></span></div><figcaption>Physis Place · Centro</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-msunset" role="img" aria-label="Meraki Sunset"></span></div><figcaption>Meraki Sunset · João Paulo</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-mallure" role="img" aria-label="Meraki Allure"></span></div><figcaption>Meraki Allure · Jurerê</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-mbeach" role="img" aria-label="Meraki Beach"></span></div><figcaption>Meraki Beach · Jurerê</figcaption></figure></div>
+      <div class="pane" id="cp2" role="tabpanel" aria-labelledby="ct2" hidden>
+      <div class="pane-head"><h3 class="h3">JHSF</h3><span class="tagp">Estilo holding</span><p class="mut">Um grupo de marcas independentes, de setores diferentes.</p></div>
+      <div class="vs">
+        <div class="side"><p class="label">JHSF</p><div class="bh"><div class="root" style="background:#FFFFFF"><span class="lg l-jhsf" role="img" aria-label="JHSF" style="aspect-ratio:80/24;width:clamp(110px,13vw,170px);height:auto"></span></div><div class="st"></div><div class="row2 sm sq4"><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanocj" role="img" aria-label="Fasano Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-shopcj" role="img" aria-label="Shopping Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fazbv" role="img" aria-label="Fazenda Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-catarina" role="img" aria-label="Catarina Fashion Outlet"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-bvestates" role="img" aria-label="Boa Vista Estates"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanobv" role="img" aria-label="Fasano Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-cjfashion" role="img" aria-label="CJ Fashion"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanoangra" role="img" aria-label="Fasano Angra dos Reis"></span></div></figure></div></div></div>
+        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Propriedades</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+      </div>
+      <div class="diff">
+        <div class="col"><p class="label">O que distancia</p><ul><li>As marcas aparecem com identidade própria, sem o nome JHSF nos logos. A CENA põe o seu nome em cada frente.</li><li>Nove negócios de setores diferentes, de shoppings a aviação. A CENA tem três frentes do mesmo setor.</li><li>Capital aberto desde 2007 e “Participações” no nome. A CENA quer ser um grupo de marca, e não uma holding.</li></ul></div>
+        <div class="col"><p class="label">O que aproxima</p><ul><li>Respeita a identidade de cada marca, como a do Arkki.</li><li>Locação Residencial e Cidades como negócios, perto de Propriedades e Urbanismo.</li><li>O site de venda e o de investidores ficam separados do institucional, como o hub da CENA.</li></ul></div>
+      </div>
+      <p class="verdict">É o contraste que explica por que a CENA é Grupo CENA e não uma holding. A leitura é nossa, a partir do nome e dos negócios. A forma jurídica da JHSF não foi verificada.</p>
+      <p class="small">Fonte: jhsf.com.br, home e A empresa, outubro de 2026. Mostrados oito dos logos da home. Parte deles são marcas de parceiros.</p>
     </div>
-    <p class="small rv" style="margin-top:28px">Fontes: cbacorp.com.br e cbaempreendimentos.com.br, consulta em outubro de 2026. A promessa do grupo é ser “a incorporadora mais eficiente do Brasil”.</p>
+      <div class="pane" id="cp3" role="tabpanel" aria-labelledby="ct3" hidden>
+      <div class="pane-head"><h3 class="h3">Hurbana</h3><span class="tagp">Mais próxima</span><p class="mut">Uma marca única levada a todas as linhas.</p></div>
+      <div class="vs">
+        <div class="side"><p class="label">Hurbana</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-hurbana" role="img" aria-label="Hurbana" style="aspect-ratio:257/50;width:clamp(130px,16vw,200px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-hcidades" role="img" aria-label="Hurbana Cidades-bairros"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpasseios" role="img" aria-label="Hurbana Passeios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpatios" role="img" aria-label="Hurbana Pátios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hreservas" role="img" aria-label="Hurbana Reservas"></span></div></figure></div></div></div>
+        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
+<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#5D3754"><b>CENA Propriedades</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+      </div>
+      <div class="diff">
+        <div class="col"><p class="label">O que distancia</p><ul><li>Atua em um só setor, o urbanismo, em quatro escalas. A CENA reúne três negócios diferentes.</li><li>A marca é nova. A CENA tem nome e uma herança de mais de 140 anos.</li><li>As linhas têm nome por escala. Na CENA, os produtos têm nome livre, como Arkki.</li></ul></div>
+        <div class="col"><p class="label">O que aproxima</p><ul><li>O nome Hurbana acompanha cada linha: Cidades-bairros, Passeios, Pátios e Reservas. É a lógica de CENA Empreendimentos, Urbanismo e Propriedades.</li><li>Cada linha tem um descritor claro, com a marca-mãe em evidência.</li><li>Nasceu de um rebranding, a Cidade Criativa Pedra Branca virando Hurbana, como o da CENA.</li></ul></div>
+      </div>
+      <p class="verdict">É o modelo mais próximo do que a CENA propõe: uma marca em todas as frentes. A diferença está na herança e na variedade dos negócios.</p>
+      <p class="small">Fonte: hurbana.com, home, outubro de 2026. As outras páginas não foram lidas.</p>
+    </div>
+    </div>
   </div>
 </section>
 
-<section class="blk" id="jhsf" data-tone="light" data-ch="2" style="padding-top:0">
+<section class="blk" id="modelos" data-tone="light" data-ch="2" style="padding-top:0">
   <div class="wrap">
-    <p class="kicker rv" style="margin-bottom:20px">Leitura da referência</p>
-    <h2 class="h2 rv" style="font-size:clamp(56px,13vw,200px);font-weight:800;letter-spacing:-.04em;line-height:.9">JHSF</h2>
-    <div style="height:clamp(36px,5vw,72px)"></div>
-    <div class="g3">
-      <div class="col rv"><p class="label">O grupo</p><h3 class="h3">Alta renda, desde 1972</h3><p class="mut">Se apresenta como líder no setor imobiliário de alta renda no Brasil. Capital aberto desde 2007.</p></div>
-      <div class="col rv" style="--d:.1s"><p class="label">Como trata as marcas</p><h3 class="h3">Cada negócio com identidade própria</h3><p class="mut">Diz respeitar as características de cada negócio e a identidade de cada marca. O cliente é o elo entre os negócios.</p></div>
-      <div class="col rv" style="--d:.2s"><p class="label">Valores em verbos</p><h3 class="h3">Surpreender, inspirar, transformar, realizar</h3><p class="mut">Quatro verbos de ação, em vez de uma lista de atributos.</p></div>
+    <div class="g2">
+      <div class="stack"><p class="kicker rv">Onde a CENA fica</p><h2 class="h2 rv">Do mais separado<br><em>ao mais unido</em></h2><p class="lead rv">A JHSF é o contraste: marcas independentes sob um grupo. A Hurbana é o espelho: o nome do grupo em todas as linhas. A CENA segue o segundo caminho, e por isso é Grupo CENA, e não uma holding.</p></div>
+      <div class="spec rv" role="img" aria-label="Régua de modelos: JHSF perto das marcas independentes, CBA no meio, Hurbana e CENA perto da marca única">
+        <div class="spec-ends"><span>Marcas independentes</span><span>Uma marca em todas as frentes</span></div>
+        <div class="spec-row" style="--x:9%"><b>JHSF</b><i></i><span>Marcas independentes sob um grupo</span></div>
+        <div class="spec-row" style="--x:42%"><b>CBA</b><i></i><span>Duas marcas, só uma leva o nome</span></div>
+        <div class="spec-row" style="--x:80%"><b>Hurbana</b><i></i><span>Nome do grupo em todas as linhas</span></div>
+        <div class="spec-row us" style="--x:94%"><b>CENA</b><i></i><span>Nome do grupo em todas as frentes</span></div>
+        <p class="small">Leitura nossa, a partir do que cada site mostra. Não é uma medição.</p>
+      </div>
     </div>
-    <div style="height:clamp(36px,5vw,64px)"></div>
-    <p class="label rv" style="margin-bottom:16px">Os negócios do grupo</p>
-    <p class="stm rv" style="font-size:clamp(22px,2.8vw,42px)">Desenvolvimento imobiliário <span class="acc">/</span> Shopping centers <span class="acc">/</span> Hospitalidade e gastronomia <span class="acc">/</span> Aviação executiva <span class="acc">/</span> Curadoria marítima <span class="acc">/</span> <b>Locação residencial</b> <span class="acc">/</span> Private member clubs <span class="acc">/</span> JHSF Capital <span class="acc">/</span> Fashion retail</p>
-    <div class="bh rv" style="margin-top:clamp(36px,5vw,64px)">
-      <p class="label" style="margin-bottom:14px">As marcas do grupo, como aparecem na home</p>
-      <div class="root" style="background:#F4F7FB"><span class="lg l-jhsf" role="img" aria-label="JHSF" style="aspect-ratio:80/24;width:clamp(140px,20vw,240px);height:auto"></span></div>
-      <div class="st"></div>
-      <div class="row2" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))"><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanocj" role="img" aria-label="Fasano Cidade Jardim"></span></div><figcaption>Fasano Cidade Jardim</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-shopcj" role="img" aria-label="Shopping Cidade Jardim"></span></div><figcaption>Shopping Cidade Jardim</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fazbv" role="img" aria-label="Fazenda Boa Vista"></span></div><figcaption>Fazenda Boa Vista</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-catarina" role="img" aria-label="Catarina Fashion Outlet"></span></div><figcaption>Catarina Fashion Outlet</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-chloe" role="img" aria-label="Chloé"></span></div><figcaption>Chloé</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-isabel" role="img" aria-label="Isabel Marant"></span></div><figcaption>Isabel Marant</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-aquazzura" role="img" aria-label="Aquazzura"></span></div><figcaption>Aquazzura</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-bvestates" role="img" aria-label="Boa Vista Estates"></span></div><figcaption>Boa Vista Estates</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanobv" role="img" aria-label="Fasano Boa Vista"></span></div><figcaption>Fasano Boa Vista</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-cjfashion" role="img" aria-label="CJ Fashion"></span></div><figcaption>CJ Fashion</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanoangra" role="img" aria-label="Fasano Angra dos Reis"></span></div><figcaption>Fasano Angra dos Reis</figcaption></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-santahelena" role="img" aria-label="Fazenda Santa Helena"></span></div><figcaption>Fazenda Santa Helena</figcaption></figure></div>
-    </div>
-    <p class="small rv" style="margin-top:28px">Fonte: jhsf.com.br, home e página A empresa, consulta em outubro de 2026. O edifício Vitra, do arquiteto Daniel Libeskind, aparece entre os prêmios da empresa. O site de venda (imóveis à venda) e o de investidores ficam em endereços próprios. As outras páginas do grupo não foram lidas.</p>
-  </div>
-</section>
-
-<section class="blk" id="hurbana" data-tone="light" data-ch="2" style="padding-top:0">
-  <div class="wrap">
-    <p class="kicker rv" style="margin-bottom:20px">Leitura da referência</p>
-    <h2 class="h2 rv" style="font-size:clamp(56px,13vw,200px);font-weight:800;letter-spacing:-.04em;line-height:.9">Hurbana</h2>
-    <div style="height:clamp(36px,5vw,72px)"></div>
-    <div class="g3">
-      <div class="col rv"><p class="label">O grupo</p><h3 class="h3">Cidade para pessoas</h3><p class="mut">Desenvolve empreendimentos imobiliários em Santa Catarina com a missão de melhorar a cidade para as pessoas.</p></div>
-      <div class="col rv" style="--d:.1s"><p class="label">O rebranding</p><h3 class="h3">Uma marca nova para um urbanismo já existente</h3><p class="mut">A Cidade Criativa Pedra Branca se expande e inicia um novo ciclo com uma nova marca, a Hurbana.</p></div>
-      <div class="col rv" style="--d:.2s"><p class="label">Princípios</p><h3 class="h3">Prioridade ao pedestre</h3><p class="mut">Espaços públicos atraentes e seguros, cidade criativa e conectada, estética e sustentabilidade.</p></div>
-    </div>
-    <div class="bh rv" style="margin-top:clamp(36px,5vw,64px)">
-      <p class="label" style="margin-bottom:14px">Quatro escalas, quatro nomes</p>
-      <div class="root" style="background:#0C2340"><span class="lg l-hurbana" role="img" aria-label="Hurbana" style="aspect-ratio:257/50;width:clamp(150px,22vw,260px);height:auto"></span></div>
-      <div class="st"></div>
-      <div class="row2"><figure class="fg"><div class="tile dk"><span class="lg l-hcidades" role="img" aria-label="Hurbana Cidades-bairros"></span></div><figcaption>Bairros planejados, compactos e sustentáveis</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpasseios" role="img" aria-label="Hurbana Passeios"></span></div><figcaption>A rua principal do bairro, com prioridade ao pedestre</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpatios" role="img" aria-label="Hurbana Pátios"></span></div><figcaption>Praça central de uso comum, com fachadas ativas</figcaption></figure><figure class="fg"><div class="tile dk"><span class="lg l-hreservas" role="img" aria-label="Hurbana Reservas"></span></div><figcaption>Lotes em condomínios, entre áreas verdes</figcaption></figure></div>
-    </div>
-    <div style="height:clamp(40px,5vw,72px)"></div>
-    <p class="h3 rv" style="margin-bottom:12px">Hurbana e CENA Urbanismo, lado a lado</p>
-    <div class="rows" style="--rc:minmax(0,.7fr) minmax(0,1.2fr) minmax(0,1.2fr)">
-      <div class="row head"><span>Tema</span><span>Hurbana</span><span>CENA Urbanismo</span></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Nome</p><p class="mut"><span class="lb">Hurbana</span>Marca nova, criada em um rebranding</p><p style="font-weight:700"><span class="lb">CENA Urbanismo</span>Prefixo CENA mais o descritor</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Produtos</p><p class="mut"><span class="lb">Hurbana</span>Quatro linhas por escala, cada uma com nome e logo</p><p style="font-weight:700"><span class="lb">CENA Urbanismo</span>Loteamentos descritos pelo lugar</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Ideia central</p><p class="mut"><span class="lb">Hurbana</span>Cidade para pessoas</p><p style="font-weight:700"><span class="lb">CENA Urbanismo</span>A definir</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Origem</p><p class="mut"><span class="lb">Hurbana</span>Cidade Criativa Pedra Branca</p><p style="font-weight:700"><span class="lb">CENA Urbanismo</span>Família Hoepcke e capital próprio</p></div>
-    </div>
-    <p class="small rv" style="margin-top:24px">Fonte: hurbana.com, home, consulta em outubro de 2026. As outras páginas não foram lidas.</p>
-  </div>
-</section>
-
-<section class="blk" id="comparativo" data-tone="light" data-ch="2" style="padding-top:0">
-  <div class="wrap">
-    <h2 class="h2 rv">CBA, JHSF e CENA,<br><em>lado a lado</em></h2>
-    <div style="height:clamp(32px,4vw,64px)"></div>
-    <div class="rows" style="--rc:minmax(0,.8fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)">
-      <div class="row head"><span>Tema</span><span>CBA</span><span>JHSF</span><span>CENA</span></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Tom do grupo</p><p class="mut"><span class="lb">CBA</span>Capital, eficiência e plataforma</p><p class="mut"><span class="lb">JHSF</span>Alta renda e “clientes especiais”</p><p style="font-weight:700"><span class="lb">CENA</span>Legado, família e cidade</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Frentes</p><p class="mut"><span class="lb">CBA</span>Duas: luxo e popular</p><p class="mut"><span class="lb">JHSF</span>Nove negócios, de imóveis a aviação</p><p style="font-weight:700"><span class="lb">CENA</span>Três: Empreendimentos, Urbanismo e Propriedades</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Marcas e produtos</p><p class="mut"><span class="lb">CBA</span>Nome próprio, com sobrenome por projeto</p><p class="mut"><span class="lb">JHSF</span>Identidade própria para cada marca</p><p style="font-weight:700"><span class="lb">CENA</span>Nome próprio e o símbolo da CENA ao lado</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Locação e cidade</p><p class="mut"><span class="lb">CBA</span>Não aparecem nas páginas lidas</p><p class="mut"><span class="lb">JHSF</span>Locação residencial e cidades como negócios</p><p style="font-weight:700"><span class="lb">CENA</span>Propriedades e Urbanismo, com nome de patrimônio e de território</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Arquitetura autoral</p><p class="mut"><span class="lb">CBA</span>Nomes relevantes da arquitetura e do paisagismo</p><p class="mut"><span class="lb">JHSF</span>Edifício Vitra, do arquiteto Daniel Libeskind</p><p style="font-weight:700"><span class="lb">CENA</span>Figura de autoridade e/ou embaixador</p></div>
-      <div class="row rv"><p class="h3"><span class="lb">Tema</span>Bem-estar físico e herança</p><p class="mut"><span class="lb">CBA</span>Não aparecem nas páginas lidas</p><p class="mut"><span class="lb">JHSF</span>Fundada em 1972. Herança familiar não aparece</p><p style="font-weight:700"><span class="lb">CENA</span>Piscina de raia e família Hoepcke, desde 1860</p></div>
-    </div>
-    <p class="small rv" style="margin-top:24px">“Não aparecem” vale só para as páginas lidas: a home e Quem somos da CBA, e a home e A empresa da JHSF. Outras referências a levantar para completar o comparativo.</p>
   </div>
 </section>
 
@@ -532,7 +592,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="c3" data-tone="blue" data-ch="3">
   <div class="wrap">
     <p class="slate rv"><b>Cena 03</b><span>Direção estratégica</span></p>
-    <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px"><span class="mask"><span>Do estudo</span></span><span class="mask"><span><em>à nossa resposta</em></span></span></h2>
+    <h2 class="h2 rv" style="--fo:14px;padding-block:6px"><span class="mask"><span>Do estudo</span></span><span class="mask"><span><em>à nossa resposta</em></span></span></h2>
     <div style="height:clamp(40px,5vw,80px)"></div>
     <div class="g3">
       <div class="col rv"><p class="label">Aprendizado</p><p class="h3">Grupos fortes têm um hub que leva às marcas e produtos com nome próprio.</p></div>
@@ -570,17 +630,17 @@ footer svg{height:22px;width:auto;color:var(--fg)}
       <svg class="orb rv" viewBox="0 0 600 560" role="img" aria-label="Marca central CENA ligada às frentes Empreendimentos, Urbanismo e Propriedades">
         <g><line class="ln" x1="300" y1="270" x2="110" y2="110"/><line class="ln" x1="300" y1="270" x2="490" y2="110"/><line class="ln" x1="300" y1="270" x2="300" y2="450"/></g>
         <circle class="nd" cx="300" cy="270" r="112" fill="#0C2340"/>
-        <text class="nd" x="300" y="266" text-anchor="middle" font-size="34" font-weight="800" fill="#F4F7FB">Grupo</text>
-        <text class="nd" x="300" y="306" text-anchor="middle" font-size="34" font-weight="800" fill="#F4F7FB">CENA</text>
-        <circle class="nd" cx="110" cy="110" r="88" fill="#375172" stroke="#C5D6EC" stroke-width="2"/>
-        <text class="nd" x="110" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">CENA</text>
-        <text class="nd" x="110" y="130" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">Empreend.</text>
+        <text class="nd" x="300" y="266" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF">Grupo</text>
+        <text class="nd" x="300" y="306" text-anchor="middle" font-size="34" font-weight="800" fill="#FFFFFF">CENA</text>
+        <circle class="nd" cx="110" cy="110" r="88" fill="#375172" stroke="#FFFFFF" stroke-width="2"/>
+        <text class="nd" x="110" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">CENA</text>
+        <text class="nd" x="110" y="130" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">Empreend.</text>
         <circle class="nd" cx="490" cy="110" r="88" fill="#5B7855"/>
-        <text class="nd" x="490" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">CENA</text>
-        <text class="nd" x="490" y="130" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">Urbanismo</text>
+        <text class="nd" x="490" y="106" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">CENA</text>
+        <text class="nd" x="490" y="130" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">Urbanismo</text>
         <circle class="nd" cx="300" cy="450" r="88" fill="#5D3754"/>
-        <text class="nd" x="300" y="446" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">CENA</text>
-        <text class="nd" x="300" y="470" text-anchor="middle" font-size="19" font-weight="800" fill="#F4F7FB">Propriedades</text>
+        <text class="nd" x="300" y="446" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">CENA</text>
+        <text class="nd" x="300" y="470" text-anchor="middle" font-size="19" font-weight="800" fill="#FFFFFF">Propriedades</text>
       </svg>
       <div class="rows">
         <div class="row rv" style="--rc:1fr"><p class="h3">Uma origem comum</p><p class="mut">Reúne as frentes sob a herança Hoepcke e transfere reconhecimento.</p></div>
@@ -600,9 +660,9 @@ footer svg{height:22px;width:auto;color:var(--fg)}
         <p class="label">Hierarquia de nomes</p>
         <div style="border:2px solid var(--line);padding:18px 24px"><p class="h3" style="font-weight:800">Grupo CENA</p></div>
         <div style="display:grid;gap:10px;padding-left:clamp(16px,3vw,40px)">
-          <p class="h3" style="background:#375172;padding:14px 22px;color:#F4F7FB;border:1px solid rgba(244,247,251,.35)">CENA Empreendimentos</p>
-          <p class="h3" style="background:#5B7855;padding:14px 22px;color:#F4F7FB">CENA Urbanismo</p>
-          <p class="h3" style="background:#5D3754;padding:14px 22px;color:#F4F7FB">CENA Propriedades</p>
+          <p class="h3" style="background:#375172;padding:14px 22px;color:#FFFFFF;border:1px solid rgba(255,255,255,.35)">CENA Empreendimentos</p>
+          <p class="h3" style="background:#5B7855;padding:14px 22px;color:#FFFFFF">CENA Urbanismo</p>
+          <p class="h3" style="background:#5D3754;padding:14px 22px;color:#FFFFFF">CENA Propriedades</p>
         </div>
         <div style="padding-left:clamp(32px,6vw,80px)"><p class="mut" style="border:2px dashed var(--line);padding:14px 22px">Produtos: Arkki Home Club, Côte D’Azur Ville</p></div>
       </div>
@@ -620,7 +680,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="c4" data-tone="navy" data-ch="4">
   <div class="wrap">
     <p class="slate rv"><b>Cena 04</b><span>Ecossistema Grupo CENA</span></p>
-    <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px"><span class="mask"><span>Um grupo.</span></span><span class="mask"><span><em>Três frentes conectadas.</em></span></span></h2>
+    <h2 class="h2 rv" style="--fo:14px;padding-block:6px"><span class="mask"><span>Um grupo.</span></span><span class="mask"><span><em>Três frentes conectadas.</em></span></span></h2>
     <div style="height:clamp(40px,5vw,80px)"></div>
     <div class="hub rv">
       <div class="root"><svg viewBox="0 0 580.01 165.84" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div>
@@ -688,25 +748,32 @@ footer svg{height:22px;width:auto;color:var(--fg)}
   </div>
 </section>
 
-<section class="blk" id="pilares" data-tone="light" data-ch="5">
+<section class="blk" id="missao" data-tone="navy" data-ch="5">
   <div class="wrap">
-    <p class="kicker rv" style="margin-bottom:20px">Pilares de posicionamento</p>
-    <h2 class="h2 rv">Três <em>pilares</em></h2>
-    <div class="pillars rv">
-      <div class="pillar" style="--d:0s"><div class="cap"></div><div class="shaft" style="--d:.1s"><h3>Legados que permanecem</h3><p class="mut">Tradição familiar que continua entre gerações.</p><dl><div><dt>Expressão</dt><dd>Herança Hoepcke visível na marca.</dd></div><div><dt>Evidência</dt><dd>Sexta geração. Armazém Rita Maria, de 1896.</dd></div></dl></div><div class="base"></div></div>
-      <div class="pillar"><div class="cap"></div><div class="shaft" style="--d:.25s"><h3>Olhares que enxergam o invisível</h3><p class="mut">Reconhecer o potencial dos lugares.</p><dl><div><dt>Expressão</dt><dd>Ler o lugar antes de projetar.</dd></div><div><dt>Evidência</dt><dd>Armazém Rita Maria virou centro cultural.</dd></div></dl></div><div class="base"></div></div>
-      <div class="pillar"><div class="cap"></div><div class="shaft" style="--d:.4s"><h3>Novos capítulos</h3><p class="mut">Evolução das cidades e construção do futuro.</p><dl><div><dt>Expressão</dt><dd>Projetos que renovam o lugar onde estão.</dd></div><div><dt>Evidência</dt><dd>Arkki Home Club, lançamento no Centro.</dd></div></dl></div><div class="base"></div></div>
+    <p class="label rv">Propósito</p>
+    <p class="display rv" style="margin-top:14px;font-size:clamp(44px,9vw,148px);font-weight:800;line-height:.95;letter-spacing:-.035em;text-transform:none">Incorporar<br><span style="font-weight:200;color:var(--acc)">valor à vida.</span></p>
+    <div class="g2 eq" style="margin-top:clamp(56px,7vw,112px);gap:clamp(40px,7vw,112px)">
+      <div class="stack rv"><p class="label">Missão</p><p class="stm" style="font-size:clamp(24px,2.8vw,40px)">Reconhecer o potencial de cada lugar e transformá-lo em espaços que cuidam da vida cotidiana, conectam pessoas e contribuem para a cidade.</p></div>
+      <div class="stack rv" style="--d:.12s"><p class="label">Visão</p><p class="stm" style="font-size:clamp(24px,2.8vw,40px)">Transformar a forma de viver nas cidades, construindo legados para as próximas gerações.</p></div>
     </div>
+    <p class="lead rv" style="margin-top:clamp(48px,6vw,88px)">Assinatura: <b style="color:var(--fg)">Unindo histórias, criando legados.</b></p>
   </div>
 </section>
 
-<section class="blk" id="missao" data-tone="navy" data-ch="5">
+<section class="blk" id="pilares" data-tone="light" data-ch="5">
   <div class="wrap">
-    <div class="g2 eq" style="gap:clamp(48px,8vw,128px)">
-      <div class="stack rv"><p class="label">Missão · compromisso de hoje</p><p class="display" style="font-size:clamp(44px,7vw,108px);font-weight:800;line-height:.95;letter-spacing:-.03em;text-transform:none">Incorporar valor à vida.</p></div>
-      <div class="stack rv" style="--d:.15s"><p class="label">Visão · direção de futuro</p><p class="display" style="font-size:clamp(44px,7vw,108px);font-weight:200;line-height:.95;letter-spacing:-.03em;text-transform:none">Recontar a forma de viver <b style="font-weight:800;color:var(--acc)">nas cidades.</b></p></div>
+    <p class="kicker rv" style="margin-bottom:20px">Institucional Grupo CENA</p>
+    <h2 class="h2 rv">Os três pilares<br><em>da CENA</em></h2>
+    <div class="pillars rv"><div class="pillar"><div class="cap"></div><div class="shaft" style="--d:0.1s"><h3>Legados que permanecem</h3><p class="tg">A história que sustenta cada novo compromisso.</p><dl><div><dt>Na prática</dt><dd>Avaliar projetos pelo valor que podem manter ao longo do tempo, assumir compromissos claros e cuidar das relações para além da entrega.</dd></div><div><dt>Na comunicação</dt><dd>Contar a história por meio de lugares, pessoas e realizações. A trajetória dá força à promessa; a atuação presente comprova sua continuidade.</dd></div></dl><details class="more"><summary>Ler o texto completo</summary><div class="full"><p>A CENA nasce da trajetória da família Hoepcke e de sua relação com o desenvolvimento de Florianópolis. Uma história que atravessa gerações, atividades e transformações, mantendo a disposição de empreender e criar valor ao longo do tempo.</p><p>Essa herança traz uma responsabilidade: cada novo projeto precisa estar à altura da confiança construída antes dele. O sobrenome abre uma relação; as escolhas e as entregas precisam sustentá-la.</p><p>A tradição se manifesta na visão de longo prazo, no cuidado com o patrimônio e na continuidade das relações com clientes, parceiros e proprietários de terrenos. Preservar um legado também significa encontrar novos usos e possibilidades para ele.</p></div></details></div><div class="base"></div></div><div class="pillar"><div class="cap"></div><div class="shaft" style="--d:0.25s"><h3>Olhares que revelam possibilidades</h3><p class="tg">A sensibilidade de enxergar o lugar e o cuidado de projetar a vida.</p><dl><div><dt>Na prática</dt><dd>Criar um Padrão CENA de Projeto e Bem-Estar, com critérios de iluminação, ventilação, conforto acústico, paisagismo e convivência, definidos conforme a tipologia e o contexto de cada empreendimento.</dd></div><div><dt>Na comunicação</dt><dd>Mostrar como uma escolha de projeto melhora uma experiência cotidiana. A luz da manhã, o silêncio dentro de casa, a sombra no percurso e o espaço para estar junto tornam o cuidado visível.</dd></div></dl><details class="more"><summary>Ler o texto completo</summary><div class="full"><p>Cada terreno guarda possibilidades. Cada bairro tem uma identidade. Cada pessoa tem uma maneira de morar, trabalhar e conviver. O olhar da CENA conecta essas dimensões para criar projetos que façam sentido naquele lugar e na vida de quem vai ocupá-lo.</p><p>Reconhecer esse potencial exige atenção à paisagem, à memória, à natureza e às rotinas. É desse olhar que devem nascer as decisões de arquitetura: como a luz entra, como o ar circula, como os ambientes acolhem e como as pessoas se encontram.</p><p>O bem-estar ganha, assim, uma função concreta no posicionamento: orientar escolhas que possam ser percebidas no uso diário e verificadas no projeto.</p></div></details></div><div class="base"></div></div><div class="pillar"><div class="cap"></div><div class="shaft" style="--d:0.4s"><h3>Novos capítulos para a cidade</h3><p class="tg">Cada empreendimento abre possibilidades para quem vive nele e ao seu redor.</p><dl><div><dt>Na prática</dt><dd>Definir, desde o início, qual contribuição cada projeto pode oferecer ao entorno e incorporá-la às decisões de desenvolvimento.</dd></div><div><dt>Na comunicação</dt><dd>Apresentar a transformação com clareza: o que havia, o que foi valorizado e o que as pessoas passaram a ganhar.</dd></div></dl><details class="more"><summary>Ler o texto completo</summary><div class="full"><p>A CENA participa da transformação dos lugares onde atua. Seus projetos passam a fazer parte de uma rua, de um bairro e das histórias de muitas pessoas.</p><p>Por isso, cada empreendimento deve começar com uma pergunta: o que este lugar vai ganhar?</p><p>A resposta pode estar em uma calçada mais acolhedora, na recuperação de um patrimônio, na preservação da vegetação, em espaços de encontro ou em atividades que tragam movimento à rua. Na escala de um bairro, pode estar em percursos que aproximam moradia, trabalho, serviços e natureza.</p><p>Criar novos capítulos significa compreender o que já existe e acrescentar algo que mereça permanecer. É assim que a contribuição de hoje se torna o legado de amanhã.</p></div></details></div><div class="base"></div></div></div>
+    <div class="g2" style="margin-top:clamp(64px,8vw,128px)">
+      <div class="stack"><p class="kicker rv">Uma mesma forma de construir</p><h2 class="h2 rv" style="font-size:clamp(30px,4vw,56px)">Do passado<br>ao que ficará</h2></div>
+      <div class="rows">
+        <div class="row rv" style="--rc:1fr"><p class="h3"><b>Legados que permanecem</b> sustentam a confiança.</p></div>
+        <div class="row rv" style="--rc:1fr"><p class="h3"><b>Olhares que revelam possibilidades</b> transformam cuidado em projeto.</p></div>
+        <div class="row rv" style="--rc:1fr"><p class="h3"><b>Novos capítulos para a cidade</b> ampliam o valor para além do empreendimento.</p></div>
+        <p class="lead rv" style="padding-top:24px">A CENA parte da história, reconhece as possibilidades do presente e constrói o que ficará para as próximas gerações.</p>
+      </div>
     </div>
-    <p class="lead rv" style="margin-top:clamp(40px,5vw,72px)">As duas orientam as três frentes. A assinatura é <b style="color:var(--fg)">Unindo histórias, criando legados.</b></p>
   </div>
 </section>
 
@@ -733,7 +800,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
     <p class="slate rv"><b>Cena 06</b><span>CENA Empreendimentos</span></p>
     <div class="g2">
       <div class="stack">
-        <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px"><span class="mask"><span>Incorporação</span></span><span class="mask"><span>com foco</span></span><span class="mask"><span><em>no lugar</em></span></span></h2>
+        <h2 class="h2 rv" style="--fo:14px;padding-block:6px"><span class="mask"><span>Incorporação</span></span><span class="mask"><span>com foco</span></span><span class="mask"><span><em>no lugar</em></span></span></h2>
         <p class="lead rv">Edifícios residenciais e comerciais pensados do conforto da rotina de quem vive nas unidades ao impacto nas vizinhanças. Hoje reúne o Arkki Home Club e o Côte D’Azur Ville. É a primeira frente do Grupo CENA e leva o mesmo nome de origem.</p>
       </div>
       <div class="stack">
@@ -769,8 +836,8 @@ footer svg{height:22px;width:auto;color:var(--fg)}
     <div style="height:clamp(36px,5vw,72px)"></div>
     <div class="g2 eq">
       <div class="stack">
-        <div class="logopanel rv" style="background:#0C2340;border:2px solid rgba(143,176,220,.5);color:#F4F7FB"><svg viewBox="0 0 580.01 165.84" role="img" aria-label="Logo Grupo CENA"><use href="#v-grupo"/></svg></div>
-        <div class="logopanel rv" style="background:#375172;color:#F4F7FB"><svg viewBox="50 143 326 140" role="img" aria-label="Logo cena empreendimentos"><use href="#v-cenaemp"/></svg></div>
+        <div class="logopanel rv" style="background:#0C2340;border:2px solid rgba(255,255,255,.4);color:#FFFFFF"><svg viewBox="0 0 580.01 165.84" role="img" aria-label="Logo Grupo CENA"><use href="#v-grupo"/></svg></div>
+        <div class="logopanel rv" style="background:#375172;color:#FFFFFF"><svg viewBox="50 143 326 140" role="img" aria-label="Logo cena empreendimentos"><use href="#v-cenaemp"/></svg></div>
       </div>
       <div class="rows">
         <div class="row rv" style="--rc:1fr"><p class="h3">Hierarquia</p><p class="mut">O logo “cena” em primeiro plano, com o descritor “empreendimentos” abaixo.</p></div>
@@ -808,7 +875,8 @@ footer svg{height:22px;width:auto;color:var(--fg)}
       <div class="row rv"><p class="h3">Revitalização</p><p class="mut">Todo projeto deixa algo para a cidade e para o entorno.</p><p><span class="tagp">Olhares</span></p></div>
       <div class="row rv"><p class="h3">Conceito com legado</p><p class="mut">Uma história que carrega o valor da CENA, como a do Arkki.</p><p><span class="tagp">Legados</span></p></div>
     </div>
-    <p class="small rv" style="margin-top:24px">Critérios propostos, a validar. Nenhum deles é afirmado como padrão já adotado. A etiqueta mostra o pilar do grupo a que cada item se liga.</p>
+    <p class="lead rv" style="margin-top:28px">Esse conjunto é a base do Padrão CENA de Projeto e Bem-Estar, com critérios de iluminação, ventilação, conforto acústico, paisagismo e convivência, definidos por tipologia e contexto.</p>
+    <p class="small rv" style="margin-top:20px">Critérios propostos, a validar. Nenhum deles é afirmado como padrão já adotado. A etiqueta mostra o pilar do grupo a que cada item se liga.</p>
   </div>
 </section>
 
@@ -832,7 +900,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="c7" data-tone="green" data-ch="7">
   <div class="wrap">
     <p class="slate rv"><b>Cena 07</b><span>CENA Urbanismo</span></p>
-    <h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px;font-size:clamp(40px,8vw,128px)"><span class="mask"><span>Desenvolvimento</span></span><span class="mask"><span>urbano</span></span><span class="mask"><span><em>como território</em></span></span></h2>
+    <h2 class="h2 rv" style="--fo:14px;padding-block:6px;font-size:clamp(40px,8vw,128px)"><span class="mask"><span>Desenvolvimento</span></span><span class="mask"><span>urbano</span></span><span class="mask"><span><em>como território</em></span></span></h2>
     <p class="lead rv" style="margin-top:clamp(28px,4vw,56px)">Uma frente ainda a aprofundar. A delimitação final de produtos, serviços e modelo de atuação segue em aberto.</p>
   </div>
 </section>
@@ -875,7 +943,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="c8" data-tone="plum" data-ch="8">
   <div class="wrap">
     <p class="slate rv"><b>Cena 08</b><span>CENA Propriedades</span></p>
-    <h2 class="display rv" data-frame style="--fo:14px;padding-block:6px;font-size:clamp(36px,8.2vw,128px);line-height:.98;letter-spacing:-.03em;font-weight:200;text-transform:uppercase"><span class="mask"><span>Locações é o que fazemos.</span></span><span class="mask"><span style="font-weight:800;color:var(--acc)">Propriedades é o que somos.</span></span></h2>
+    <h2 class="display rv" style="--fo:14px;padding-block:6px;font-size:clamp(36px,8.2vw,128px);line-height:.98;letter-spacing:-.03em;font-weight:200;text-transform:uppercase"><span class="mask"><span>Locações é o que fazemos.</span></span><span class="mask"><span style="font-weight:800;color:var(--acc)">Propriedades é o que somos.</span></span></h2>
     <p class="lead rv" style="margin-top:clamp(28px,4vw,56px)">Gestão e curadoria de imóveis próprios. Antiga CENA Locações. A locação é uma atividade da frente, não uma quarta marca.</p>
   </div>
 </section>
@@ -959,7 +1027,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 <section class="blk" id="proximo" data-tone="navy" data-ch="9">
   <div class="wrap">
     <div class="g2">
-      <div class="stack"><p class="kicker rv">Próximos passos</p><h2 class="h2 rv" data-frame style="--fo:14px;padding-block:6px">O próximo<br>capítulo<br><em>da CENA</em></h2><p class="lead rv">Um grupo que continua a história da família, com uma só assinatura.</p></div>
+      <div class="stack"><p class="kicker rv">Próximos passos</p><h2 class="h2 rv" style="--fo:14px;padding-block:6px">O próximo<br>capítulo<br><em>da CENA</em></h2><p class="lead rv">Um grupo que continua a história da família, com uma só assinatura.</p></div>
       <div class="stack">
         <ol class="toc rv" style="counter-reset:s">
           <li><div class="tr"><span class="n">01</span><span class="t">Validar o posicionamento</span></div></li>
@@ -990,7 +1058,7 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 
   // revelações: tudo visível; só arma o que está abaixo da dobra
   var vh=window.innerHeight||800;
-  var items=[].slice.call(d.querySelectorAll('.rv,[data-frame],.pillars,.orb,.hub,.sig'));
+  var items=[].slice.call(d.querySelectorAll('.rv,[data-frame],.pillars,.orb,.hub,.sig,.spec'));
   if(!rm&&'IntersectionObserver' in window){
     items.forEach(function(el){var r=el.getBoundingClientRect();if(r.top>vh*.9)el.classList.add('arm');});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -6% 0px'});
@@ -1018,6 +1086,30 @@ footer svg{height:22px;width:auto;color:var(--fg)}
   }
   function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame);}}
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);frame();
+
+
+  // carrossel das referências
+  (function(){
+    var car=d.getElementById('car'); if(!car) return;
+    var tabs=[].slice.call(car.querySelectorAll('[role=tab]')),panes=[].slice.call(car.querySelectorAll('.pane')),count=car.querySelector('.count'),cur=0;
+    function show(i,focus){
+      cur=(i+tabs.length)%tabs.length;
+      tabs.forEach(function(t,k){var on=k===cur;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;});
+      panes.forEach(function(p,k){p.hidden=k!==cur;});
+      count.textContent=(cur+1)+' / '+tabs.length;
+      if(focus)tabs[cur].focus();
+    }
+    tabs.forEach(function(t,k){t.addEventListener('click',function(){show(k);});});
+    car.querySelector('.prev').addEventListener('click',function(){show(cur-1);});
+    car.querySelector('.next').addEventListener('click',function(){show(cur+1);});
+    car.querySelector('[role=tablist]').addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'){e.preventDefault();show(cur+1,true);}
+      else if(e.key==='ArrowLeft'){e.preventDefault();show(cur-1,true);}
+    });
+    var x0=null;
+    car.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    car.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>60)show(cur+(dx<0?1:-1));x0=null;},{passive:true});
+  })();
 
   // barras de cor: toque alterna
   [].slice.call(d.querySelectorAll('.bar')).forEach(function(bar){
