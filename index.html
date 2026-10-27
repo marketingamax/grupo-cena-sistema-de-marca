@@ -52,6 +52,8 @@ p,h1,h2,h3{margin:0}
 .wrap{max-width:1440px;margin-inline:auto;padding-left:var(--gut);padding-right:var(--gutr)}
 .g2{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,104px);align-items:start}
 .g2.eq{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.g2>*{min-width:0}
+.g2 .h2{font-size:clamp(30px,4.3vw,68px);overflow-wrap:break-word}
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,64px)}
 @media(max-width:900px){.g2,.g2.eq,.g3{grid-template-columns:minmax(0,1fr)}}
 .stack{display:grid;gap:clamp(20px,2.4vw,36px)}
@@ -1031,17 +1033,8 @@ main,footer,.strip{position:relative;z-index:1}
 <section class="blk" id="sistema" data-tone="light" data-ch="9">
   <div class="wrap">
     <p class="kicker rv" style="margin-bottom:20px">Uma marca, um sistema coerente</p>
-    <h2 class="h2 rv">Cores <em>e papéis</em></h2>
+    <h2 class="h2 rv">Nomes, assinaturas <em>e papéis</em></h2>
     <div style="height:clamp(36px,5vw,72px)"></div>
-    <div class="bars rv" id="bars">
-      <div class="bar n" style="--c:#0C2340" tabindex="0"><span class="lab">Grupo CENA</span><h3>Azul profundo</h3><div class="sp"><span>#0C2340</span><span>Pantone 289 C</span></div></div>
-      <div class="bar" style="--c:#375172" tabindex="0"><span class="lab">Empreendimentos</span><h3>Azul</h3><div class="sp"><span>#375172</span><span>Pantone 295 U</span></div></div>
-      <div class="bar" style="--c:#5B7855" tabindex="0"><span class="lab">Urbanismo</span><h3>Verde</h3><div class="sp"><span>#5B7855</span><span>Pantone 2266 U</span></div></div>
-      <div class="bar" style="--c:#5D3754" tabindex="0"><span class="lab">Propriedades · recomendada</span><h3>Ameixa</h3><div class="sp"><span>#5D3754</span><span>Pantone 7659 C</span></div></div>
-      <div class="bar" style="--c:#6E6259" tabindex="0"><span class="lab">Propriedades · alternativa</span><h3>Pedra</h3><div class="sp"><span>#6E6259</span><span>Pantone Warm Gray 11 C</span></div></div>
-    </div>
-    <p class="small rv" style="margin-top:24px">Passe o mouse ou toque em uma cor. Propriedades tem duas opções: ameixa, a recomendada, e pedra. Os Pantones 289 C, 7659 C e Warm Gray 11 C são referências a confirmar no guia físico. Ameixa e azul de Empreendimentos têm luminosidade quase igual: separe sempre por branco ou neutro. A pedra fica um pouco mais clara que o azul de Empreendimentos, mas é discreta ao lado do verde.</p>
-    <div style="height:clamp(48px,6vw,96px)"></div>
     <div class="g3">
       <div class="col rv"><p class="label">Nomes</p><p class="h3">Grupo CENA e três frentes com descritor.</p></div>
       <div class="col rv" style="--d:.12s"><p class="label">Assinaturas</p><p class="h3">O símbolo da CENA junto ao nome de cada produto.</p></div>
@@ -1071,7 +1064,7 @@ main,footer,.strip{position:relative;z-index:1}
 <footer data-tone="navy">
   <div class="wrap">
     <svg viewBox="50 143 326 96.5" role="img" aria-label="CENA"><use href="#v-cena"/></svg>
-    <p class="small">Documento em discussão. Logotipos, cores e textos são propostas e podem mudar.</p>
+    <p class="small">Documento em discussão. Logotipos e textos são propostas e podem mudar.</p>
   </div>
 </footer>
 
