@@ -253,12 +253,13 @@ footer svg{height:22px;width:auto;color:var(--fg)}
 .car-nav button:hover{border-color:var(--fg)}
 .car-nav .prev svg{transform:rotate(180deg)}
 .car-nav .count{font-size:14px;font-weight:800;letter-spacing:.12em;font-variant-numeric:tabular-nums;color:var(--muted);min-width:46px;text-align:center}
+[hidden]{display:none!important}
 .pane{padding-top:clamp(28px,3.4vw,48px);display:grid;gap:clamp(28px,3.4vw,48px);animation:paneIn .6s cubic-bezier(.2,.7,.1,1)}
 @keyframes paneIn{from{opacity:0;transform:translateX(18px)}}
 .pane-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px}
 .pane-head .h3{font-size:clamp(28px,3.4vw,48px);font-weight:800}
 .pane-head .mut{flex-basis:100%}
-.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,4vw,72px)}
+.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start;gap:clamp(28px,4vw,72px)}
 .side{display:grid;gap:14px;align-content:start}
 .side.cena{border-left:2px solid var(--line);padding-left:clamp(20px,3vw,48px)}
 .side .root{width:100%}
@@ -489,7 +490,7 @@ main,footer,.strip{position:relative;z-index:1}
 <section class="blk" id="estudo" data-tone="light" data-ch="2" style="padding-top:0">
   <div class="wrap">
     <p class="kicker rv" style="margin-bottom:20px">Leitura das referências</p>
-    <h2 class="h2 rv">Cada referência,<br><em>lado a lado com a CENA</em></h2>
+    <h2 class="h2 rv">Cada referência,<br><em>em si</em></h2>
     <div style="height:clamp(32px,4vw,56px)"></div>
     <div class="car rv" id="car">
       <div class="car-bar">
@@ -501,90 +502,32 @@ main,footer,.strip{position:relative;z-index:1}
         <div class="car-nav"><button type="button" class="prev" aria-label="Referência anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button><span class="count" aria-live="polite">1 / 3</span><button type="button" class="next" aria-label="Próxima referência"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button></div>
       </div>
       <div class="pane" id="cp1" role="tabpanel" aria-labelledby="ct1">
-      <div class="pane-head"><h3 class="h3">CBA Corp</h3><span class="tagp">Meio-termo</span><p class="mut">Um hub de duas marcas: uma leva o nome CBA e a outra não.</p></div>
+      <div class="pane-head"><h3 class="h3">CBA Corp</h3><span class="tagp">Duas marcas</span><p class="mut">Um hub de duas marcas: uma leva o nome CBA e a outra não.</p></div>
       <div class="vs">
         <div class="side"><p class="label">CBA Corp</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-cbc1" role="img" aria-label="CBA" style="aspect-ratio:268/55;width:clamp(86px,10vw,140px);height:auto"></span><span class="lg l-cbc2" role="img" aria-label="Corp" style="aspect-ratio:222/57;width:clamp(72px,8.4vw,116px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-cbaemp" role="img" aria-label="CBA Empreendimentos"></span></div></figure><figure class="fg"><div class="tile lt"><span class="lg l-viva" role="img" aria-label="Viva Corp"></span></div></figure></div><div class="st"></div><div class="row2 sm"><figure class="fg"><div class="tile dk"><span class="lg l-natus" role="img" aria-label="Natus Residence"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-puerto" role="img" aria-label="Puerto Madero"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-physis" role="img" aria-label="Physis Place"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-msunset" role="img" aria-label="Meraki Sunset"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mallure" role="img" aria-label="Meraki Allure"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-mbeach" role="img" aria-label="Meraki Beach"></span></div></figure></div></div></div>
-        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+        <div class="side scope"><p class="label">Escopo</p><div class="rows"><div class="row" style="--rc:1fr"><p class="h3">Incorporação residencial</p><p class="mut">A CBA Empreendimentos leva o nome do grupo. Produtos como Natus Residence, Puerto Madero e Physis têm nome próprio.</p></div><div class="row" style="--rc:1fr"><p class="h3">Segundo público</p><p class="mut">A Viva Corp atende outro segmento e não usa o nome CBA.</p></div><div class="row" style="--rc:1fr"><p class="h3">Sobrenome por projeto</p><p class="mut">Meraki Sunset, Allure e Beach.</p></div><div class="row" style="--rc:1fr"><p class="h3">Espaço de experiência</p><p class="mut">A Casa Conceito CBA.</p></div><div class="row" style="--rc:1fr"><p class="h3">Tom</p><p class="mut">“Plataforma” e valores corporativos.</p></div></div></div>
       </div>
-      <div class="diff">
-        <div class="col"><p class="label">O que distancia</p><ul><li>A Viva Corp não leva o nome CBA. Na CENA, todas as frentes levam o mesmo nome.</li><li>O tom do grupo é de capital e eficiência (“plataforma”). O da CENA é de legado e cidade.</li><li>Duas marcas para dois públicos, luxo e popular. A CENA tem três frentes de naturezas diferentes.</li></ul></div>
-        <div class="col"><p class="label">O que aproxima</p><ul><li>Um site de grupo que leva às marcas, como o hub da CENA.</li><li>Produtos com nome próprio, como o Arkki.</li><li>Um sobrenome por projeto (Meraki Sunset, Allure e Beach), que serve de modelo para a regra de nomes da CENA.</li></ul></div>
-      </div>
-      <p class="verdict">O nome CBA acompanha uma marca, mas a outra caminha sozinha. A estrutura fica entre os dois modelos: nem marca única, nem marcas totalmente independentes.</p>
+      <p class="verdict">O nome CBA acompanha uma marca, e a outra caminha sozinha. A estrutura fica entre marca única e marcas independentes.</p>
       <p class="small">Fontes: cbacorp.com.br e cbaempreendimentos.com.br, home e Quem somos, outubro de 2026. O site da Viva Corp não foi aberto.</p>
     </div>
       <div class="pane" id="cp2" role="tabpanel" aria-labelledby="ct2" hidden>
-      <div class="pane-head"><h3 class="h3">JHSF</h3><span class="tagp">Estilo holding</span><p class="mut">Um grupo de marcas independentes, de setores diferentes.</p></div>
+      <div class="pane-head"><h3 class="h3">JHSF</h3><span class="tagp">Marcas independentes</span><p class="mut">Um grupo de marcas independentes, de setores diferentes.</p></div>
       <div class="vs">
         <div class="side"><p class="label">JHSF</p><div class="bh"><div class="root" style="background:#FFFFFF"><span class="lg l-jhsf" role="img" aria-label="JHSF" style="aspect-ratio:80/24;width:clamp(110px,13vw,170px);height:auto"></span></div><div class="st"></div><div class="row2 sm sq4"><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanocj" role="img" aria-label="Fasano Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-shopcj" role="img" aria-label="Shopping Cidade Jardim"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fazbv" role="img" aria-label="Fazenda Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-catarina" role="img" aria-label="Catarina Fashion Outlet"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-bvestates" role="img" aria-label="Boa Vista Estates"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanobv" role="img" aria-label="Fasano Boa Vista"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-cjfashion" role="img" aria-label="CJ Fashion"></span></div></figure><figure class="fg"><div class="tile lt sq"><span class="lg l-fasanoangra" role="img" aria-label="Fasano Angra dos Reis"></span></div></figure></div></div></div>
-        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+        <div class="side scope"><p class="label">Escopo</p><div class="rows"><div class="row" style="--rc:1fr"><p class="h3">Setores diferentes</p><p class="mut">Shoppings, hotelaria, gastronomia, fazenda, outlet, aviação e imobiliário.</p></div><div class="row" style="--rc:1fr"><p class="h3">Marcas independentes</p><p class="mut">Fasano, Shopping Cidade Jardim, Fazenda Boa Vista e Catarina Fashion Outlet aparecem sem o nome JHSF.</p></div><div class="row" style="--rc:1fr"><p class="h3">Locação e cidades</p><p class="mut">Locação Residencial e Cidades são negócios do grupo.</p></div><div class="row" style="--rc:1fr"><p class="h3">Sites separados</p><p class="mut">Imóveis à venda e investidores têm endereços próprios.</p></div><div class="row" style="--rc:1fr"><p class="h3">Capital aberto</p><p class="mut">Na bolsa desde 2007, com “Participações” no nome. Tradição declarada desde 1972.</p></div></div></div>
       </div>
-      <div class="diff">
-        <div class="col"><p class="label">O que distancia</p><ul><li>As marcas aparecem com identidade própria, sem o nome JHSF nos logos. A CENA põe o seu nome em cada frente.</li><li>Nove negócios de setores diferentes, de shoppings a aviação. A CENA tem três frentes do mesmo setor.</li><li>Capital aberto desde 2007 e “Participações” no nome. A CENA quer ser um grupo de marca, e não uma holding.</li></ul></div>
-        <div class="col"><p class="label">O que aproxima</p><ul><li>Respeita a identidade de cada marca, como a do Arkki.</li><li>Locação Residencial e Cidades como negócios, perto de Locações e Urbanismo.</li><li>O site de venda e o de investidores ficam separados do institucional, como o hub da CENA.</li></ul></div>
-      </div>
-      <p class="verdict">É o contraste que explica por que a CENA é Grupo CENA e não uma holding. A leitura é nossa, a partir do nome e dos negócios. A forma jurídica da JHSF não foi verificada.</p>
+      <p class="verdict">Um grupo de marcas independentes, cada uma com identidade e setor próprios. A leitura é nossa, a partir do nome e dos negócios. A forma jurídica da JHSF não foi verificada.</p>
       <p class="small">Fonte: jhsf.com.br, home e A empresa, outubro de 2026. Mostrados oito dos logos da home. Parte deles são marcas de parceiros.</p>
     </div>
       <div class="pane" id="cp3" role="tabpanel" aria-labelledby="ct3" hidden>
-      <div class="pane-head"><h3 class="h3">Hurbana</h3><span class="tagp">Mais próxima</span><p class="mut">Uma marca única levada a todas as linhas.</p></div>
+      <div class="pane-head"><h3 class="h3">Hurbana</h3><span class="tagp">Marca única</span><p class="mut">Uma marca única levada a todas as linhas.</p></div>
       <div class="vs">
         <div class="side"><p class="label">Hurbana</p><div class="bh"><div class="root" style="background:#0C2340"><span class="lg l-hurbana" role="img" aria-label="Hurbana" style="aspect-ratio:257/50;width:clamp(130px,16vw,200px);height:auto"></span></div><div class="st"></div><div class="row2 two"><figure class="fg"><div class="tile dk"><span class="lg l-hcidades" role="img" aria-label="Hurbana Cidades-bairros"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpasseios" role="img" aria-label="Hurbana Passeios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hpatios" role="img" aria-label="Hurbana Pátios"></span></div></figure><figure class="fg"><div class="tile dk"><span class="lg l-hreservas" role="img" aria-label="Hurbana Reservas"></span></div></figure></div></div></div>
-        <div class="side cena"><p class="label">Grupo CENA</p><div class="bh"><div class="root" style="background:#0C2340"><svg viewBox="0 0 580.01 165.84" style="width:clamp(130px,15vw,200px);height:auto;color:#FFFFFF" role="img" aria-label="Grupo CENA"><use href="#v-grupo"/></svg></div><div class="st"></div>
-<div class="row2 cn"><div class="ct" style="background:#375172"><b>CENA Empreendimentos</b><span>Arkki Home Club · Côte D’Azur Ville</span></div><div class="ct" style="background:#5B7855"><b>CENA Urbanismo</b><span>Bairros e loteamentos</span></div><div class="ct" style="background:#575B61"><b>CENA Locações</b><span>Carl Hoepcke · Armazém Rita Maria</span></div></div></div></div>
+        <div class="side scope"><p class="label">Escopo</p><div class="rows"><div class="row" style="--rc:1fr"><p class="h3">Um só setor</p><p class="mut">Urbanismo, o desenvolvimento de cidades e bairros.</p></div><div class="row" style="--rc:1fr"><p class="h3">Quatro linhas por escala</p><p class="mut">Cidades-bairros, Passeios, Pátios e Reservas.</p></div><div class="row" style="--rc:1fr"><p class="h3">Nome em todas as linhas</p><p class="mut">O nome Hurbana acompanha cada linha, com um descritor claro.</p></div><div class="row" style="--rc:1fr"><p class="h3">Origem</p><p class="mut">Nasceu de um rebranding: a Cidade Criativa Pedra Branca virou Hurbana.</p></div><div class="row" style="--rc:1fr"><p class="h3">Posicionamento</p><p class="mut">“Cidade para pessoas”.</p></div></div></div>
       </div>
-      <div class="diff">
-        <div class="col"><p class="label">O que distancia</p><ul><li>Atua em um só setor, o urbanismo, em quatro escalas. A CENA reúne três negócios diferentes.</li><li>A marca é nova. A CENA tem nome e uma herança de mais de 140 anos.</li><li>As linhas têm nome por escala. Na CENA, os produtos têm nome livre, como Arkki.</li></ul></div>
-        <div class="col"><p class="label">O que aproxima</p><ul><li>O nome Hurbana acompanha cada linha: Cidades-bairros, Passeios, Pátios e Reservas. É a lógica de CENA Empreendimentos, Urbanismo e Locações.</li><li>Cada linha tem um descritor claro, com a marca-mãe em evidência.</li><li>Nasceu de um rebranding, a Cidade Criativa Pedra Branca virando Hurbana, como o da CENA.</li></ul></div>
-      </div>
-      <p class="verdict">É o modelo mais próximo do que a CENA propõe: uma marca em todas as frentes. A diferença está na herança e na variedade dos negócios.</p>
+      <p class="verdict">Uma marca única levada a todas as linhas, em um só setor.</p>
       <p class="small">Fonte: hurbana.com, home, outubro de 2026. As outras páginas não foram lidas.</p>
     </div>
-    </div>
-  </div>
-</section>
-
-<section class="blk" id="modelos" data-tone="light" data-ch="2" style="padding-top:0">
-  <div class="wrap">
-    <div class="g2">
-      <div class="stack"><p class="kicker rv">Onde a CENA fica</p><h2 class="h2 rv">Do mais separado<br><em>ao mais unido</em></h2><p class="lead rv">A JHSF é o contraste: marcas independentes sob um grupo. A Hurbana é o espelho: o nome do grupo em todas as linhas. A CENA segue o segundo caminho, e por isso é Grupo CENA, e não uma holding.</p></div>
-      <div class="spec rv" role="img" aria-label="Régua de modelos: JHSF perto das marcas independentes, CBA no meio, Hurbana e CENA perto da marca única">
-        <div class="spec-ends"><span>Marcas independentes</span><span>Uma marca em todas as frentes</span></div>
-        <div class="spec-row" style="--x:9%"><b>JHSF</b><i></i><span>Marcas independentes sob um grupo</span></div>
-        <div class="spec-row" style="--x:42%"><b>CBA</b><i></i><span>Duas marcas, só uma leva o nome</span></div>
-        <div class="spec-row" style="--x:80%"><b>Hurbana</b><i></i><span>Nome do grupo em todas as linhas</span></div>
-        <div class="spec-row us" style="--x:94%"><b>CENA</b><i></i><span>Nome do grupo em todas as frentes</span></div>
-        <p class="small">Leitura nossa, a partir do que cada site mostra. Não é uma medição.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="blk" id="aprendemos" data-tone="light" data-ch="2" style="padding-top:0">
-  <div class="wrap">
-    <h2 class="h2 rv">O que aprendemos<br><em>com o estudo</em></h2>
-    <div style="height:clamp(36px,5vw,72px)"></div>
-    <div class="g3">
-      <div class="col rv"><p class="stm" style="font-size:clamp(34px,4vw,60px);font-weight:200;text-transform:uppercase">Adotar</p>
-        <div><p class="h3">Produtos com nome próprio</p><p class="small">Evidência: Natus, Puerto Madero e Physis.</p></div>
-        <div><p class="h3">Site do grupo que leva às marcas</p><p class="small">Evidência: a home da CBA Corp.</p></div>
-        <div><p class="h3">Linhas de produto nomeadas por escala</p><p class="small">Evidência: Hurbana Cidades-bairros, Passeios, Pátios e Reservas.</p></div>
-        <div><p class="h3">Respeitar a identidade de cada marca</p><p class="small">Evidência: a JHSF diz fazer isso com seus negócios.</p></div>
-        <div><p class="h3">Site de venda separado do institucional</p><p class="small">Evidência: imóveis à venda e investidores em endereços próprios na JHSF.</p></div></div>
-      <div class="col rv" style="--d:.1s"><p class="stm" style="font-size:clamp(34px,4vw,60px);font-weight:200;text-transform:uppercase">Adaptar</p>
-        <div><p class="h3">Um sobrenome por projeto</p><p class="small">Evidência: Meraki Sunset, Allure e Beach.</p></div>
-        <div><p class="h3">Separar o público muito distante</p><p class="small">Evidência: Viva Corp sem o nome CBA. Vale para o Urbanismo industrial.</p></div>
-        <div><p class="h3">Espaço de experiência</p><p class="small">Evidência: Casa Conceito CBA. A CENA tem a Casa Cena.</p></div>
-        <div><p class="h3">Marca nova depois de um rebranding</p><p class="small">Evidência: a Cidade Criativa Pedra Branca virou Hurbana.</p></div>
-        <div><p class="h3">Locação e cidade como frentes</p><p class="small">Evidência: a JHSF tem Locação Residencial e Cidades. A CENA tem Locações e Urbanismo como frentes.</p></div></div>
-      <div class="col rv" style="--d:.2s"><p class="stm" style="font-size:clamp(34px,4vw,60px);font-weight:200;text-transform:uppercase">Diferenciar</p>
-        <div><p class="h3">A herança Hoepcke</p><p class="small">Evidência: ausente nas páginas lidas da CBA.</p></div>
-        <div><p class="h3">Bem-estar físico, a raia</p><p class="small">Evidência: ausente nas páginas lidas da CBA.</p></div>
-        <div><p class="h3">Sem tom de capital nem valores genéricos</p><p class="small">Evidência: “plataforma” e valores da CBA.</p></div>
-        <div><p class="h3">Um território próprio para o Urbanismo</p><p class="small">Evidência: “cidade para pessoas” já é da Hurbana. A CENA tem herança e capital próprio.</p></div>
-        <div><p class="h3">Herança de família</p><p class="small">Evidência: a JHSF fala de tradição desde 1972. A CENA tem a Hoepcke, desde 1860.</p></div></div>
     </div>
   </div>
 </section>
